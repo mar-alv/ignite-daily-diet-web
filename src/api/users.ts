@@ -1,13 +1,11 @@
 import { api } from '../lib/axios'
+import { env } from '../env'
+import { Metrics } from '../interfaces'
 
 // TODO: Treat erros with a toast
-export async function getUserMetrics() {
-	await new Promise(resolve => {
-		setTimeout(resolve, 2000)
-	})
-
+export async function getUserMetrics(): Promise<Metrics | null> {
 	try {
-		const response = await api.get('/54eed103-f6a5-49a4-9bed-93d2021632ed/metrics')
+		const response = await api.get(`/${env.VITE_USER_ID}/metrics`)
 
 		return response.data
 	} catch (e) {

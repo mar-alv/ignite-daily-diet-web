@@ -1,20 +1,6 @@
 import { Suspense } from 'react'
-import { useQuery } from 'react-query'
 
-import { getUserMetrics } from './api/users'
-
-import { Header } from './components/header'
-
-function Teste() {
-	const { data } = useQuery('getUserMetrics', getUserMetrics, { suspense: true })
-
-	return (
-		<div>
-			<p>teste</p>
-			<pre>{JSON.stringify(data, null, 2)}</pre>
-		</div>
-	)
-}
+import { DietPercentage, Header } from './components'
 
 export function App() {
   return (
@@ -22,7 +8,7 @@ export function App() {
 			<Header />
 
 			<Suspense fallback={(<p>carregando...</p>)}>
-				<Teste />
+				<DietPercentage />
 			</Suspense>
 		</div>
 	)
