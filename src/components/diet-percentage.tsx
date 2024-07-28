@@ -1,4 +1,6 @@
 import * as Dialog from '@radix-ui/react-dialog'
+import 'react-loading-skeleton/dist/skeleton.css'
+import Skeleton from 'react-loading-skeleton'
 import { useQuery } from 'react-query'
 
 import { getUserMetrics } from '../api/users'
@@ -99,5 +101,11 @@ export function DietPercentage() {
 				</Dialog.Content>
     	</Dialog.Portal>
 		</Dialog.Root>
+	)
+}
+
+export function DietPercentageSkeleton() {
+	return (
+		<Skeleton className='w-[327px] h-[102px] mt-8' baseColor='#e5f0db' highlightColor='#cbe4b4' />
 	)
 }

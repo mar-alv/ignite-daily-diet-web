@@ -1,13 +1,14 @@
+
 import { Suspense } from 'react'
 
-import { DietPercentage, Header } from './components'
+import { DietPercentage, DietPercentageSkeleton, Header } from './components'
 
 export function App() {
   return (
 		<div className='p-6'>
 			<Header />
 
-			<Suspense fallback={(<p>carregando...</p>)}>
+			<Suspense fallback={<DietPercentageSkeleton />}>
 				<DietPercentage />
 			</Suspense>
 		</div>
