@@ -34,7 +34,7 @@ export function DietPercentage() {
 			<Dialog.Portal>
 				<Dialog.Content aria-describedby={undefined} className='fixed inset-0 bg-green-light'>
 					<Dialog.Title className='sr-only'>
-						Information about the user's diet
+						Métricas da sua dieta
 					</Dialog.Title>
 
 					<section className='grid text-center rounded-lg px-4 py-5 mt-8'>
@@ -51,7 +51,7 @@ export function DietPercentage() {
 						</p>
 					</section>
 
-					<section className='h-full p-6 text-center bg-gray-700'>
+					<section className='h-full p-6 rounded-s-2xl rounded-e-2xl text-center bg-gray-700'>
 						<h2 className='text-sm text-gray-100'>
 							Estatísticas gerais
 						</h2>

@@ -3,6 +3,8 @@ export default {
   content: ['./index.html', './src/**/*.tsx'],
   theme: {
 		colors: {
+			white: '#fff',
+
 			'red-dark': '#bf3b44',
 			'red-mid': '#f3babd',
 			'red-light': '#f4e6e7',
