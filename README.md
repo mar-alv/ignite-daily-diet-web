@@ -158,3 +158,8 @@ pnpm run storybook
 
 ## License
 Licensed under [MIT](./LICENSE)
+
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Marcelo%20Alvarez-0077B5?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mar-alv)
+
+

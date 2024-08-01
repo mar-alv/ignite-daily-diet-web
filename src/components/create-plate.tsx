@@ -3,37 +3,26 @@ import { clsx } from 'clsx'
 
 import * as Dialog from '@radix-ui/react-dialog'
 import * as Form from '@radix-ui/react-form'
-import * as Toggle from '@radix-ui/react-toggle'
+import * as RadioGroup from '@radix-ui/react-radio-group'
 
-import { useForm } from 'react-hook-form'
-import { useState } from 'react'
+import { Controller, useForm } from 'react-hook-form'
 import { z } from 'zod'
 
 const createPlateSchema = z.object({
 	name: z.string().min(2),
 	description: z.string().optional(),
-	inDiet: z.boolean()
+	inDiet: z.string()
 })
 
 type CreatePlateSchema = z.infer<typeof createPlateSchema>
 
 export function CreatePlate() {
-	const [inDiet, setInDiet] = useState<boolean | null>(null)
-
-	const { handleSubmit, register, reset } = useForm<CreatePlateSchema>() 
+	const { control, handleSubmit, register, reset } = useForm<CreatePlateSchema>() 
 
 	function onSubmit(data: CreatePlateSchema) {
 		console.log(data)
 
 		reset()
-	}
-
-	function handleInDiet() {
-		setInDiet(inDiet ? null : true)
-	}
-
-	function handleOutOfDiet() {
-		setInDiet(inDiet === false ? null : false)
 	}
 
 	return (
@@ -63,13 +52,26 @@ export function CreatePlate() {
 							</Dialog.Title>
 						</div>	
 
-						<Form.Root onSubmit={handleSubmit(onSubmit)} className='h-full p-6 gap-6 rounded-s-2xl rounded-e-2xl bg-gray-700'>
+						<Form.Root
+							onSubmit={handleSubmit(onSubmit)}
+							className='h-full p-6 gap-6 grid items-center content-start relative rounded-s-2xl rounded-e-2xl bg-gray-700'
+						>
 							<Form.Field name='name' className='grid gap-2'>
 								<Form.Label className='text-sm font-bold text-gray-200'>
 									Nome
 								</Form.Label>
 
-								<Form.Control minLength={2} placeholder='Sanduíche' required {...register('name')} />
+								<Form.Control
+									minLength={2}
+									placeholder='Sanduíche'
+									required
+									className={clsx(
+										'p-[0.875rem] text-gray-100 border-[1px] border-gray-500 rounded-md outline-none',
+										'placeholder:text-gray-400',
+										'focus:border-gray-300'
+									)}
+									{...register('name')}
+								/>
 
 								<Form.Message match='tooShort' className='text-red-dark'>
 									O nome deve ter pelo menos 2 caracteres.
@@ -84,7 +86,11 @@ export function CreatePlate() {
 								<Form.Control asChild>
 									<textarea 
 										placeholder='Sanduíche de pão integral com atum e salada de alface e tomate'
-										className='resize-none'
+										className={clsx(
+											'h-[120px] p-[0.875rem] text-gray-100 border-[1px] border-gray-500 rounded-md outline-none resize-none',
+											'placeholder:text-gray-400',
+											'focus:border-gray-300'
+										)}
 										{...register('description')}
 									>
 									</textarea>
@@ -96,36 +102,55 @@ export function CreatePlate() {
 									Está dentro da dieta?
 								</p>
 
-								<div className='mt-2 gap-2 grid grid-cols-2'>
-									<Toggle.Root pressed={!!inDiet} onPressedChange={handleInDiet}>
-										<span
-											className={clsx(
-												'p-4 flex justify-center items-center gap-2 rounded-md text-sm font-bold text-gray-200',
-												inDiet ? 'outline-none outline-offset-0 outline-green-dark bg-green-light' : 'bg-gray-600'
-											)}
+								<Controller
+									name='inDiet'
+									control={control}
+									rules={{ required: true }}
+									render={({ field }) => (
+										<RadioGroup.Root
+											onValueChange={field.onChange}
+											required
+											value={field.value}
+											className='mt-2 gap-2 grid grid-cols-2'
 										>
-											<div className='size-2 rounded-full bg-green-dark' />
+											<RadioGroup.Item
+												value='true'
+												className={clsx('p-4 gap-2 flex justify-center items-center rounded-md cursor-pointer',
+													field.value === 'true' ? 'bg-green-light outline outline-1 outline-green-dark outline-offset-0' : 'bg-gray-600'
+												)}
+											>
+												<div className='size-2 rounded-full bg-green-dark' />
 
-											Sim
-										</span>
-									</Toggle.Root>
+												<label className='text-sm font-bold text-gray-200'>
 
-									<Toggle.Root pressed={inDiet === false} onPressedChange={handleOutOfDiet}>
-										<span
-											className={clsx(
-												'p-4 flex justify-center items-center gap-2 rounded-md text-sm font-bold text-gray-200',
-												inDiet === false ? 'outline-none outline-offset-0 outline-red-dark bg-red-light' : 'bg-gray-600'
-											)}
-										>
-											<div className='size-2 rounded-full bg-red-dark' />
+													Sim
+												</label>
+											</RadioGroup.Item>
 
-											Sim
-										</span>
-									</Toggle.Root>
-								</div>
+											<RadioGroup.Item
+												value='false'
+												className={clsx('p-4 gap-2 flex justify-center items-center rounded-md cursor-pointer',
+													field.value === 'false' ? 'bg-red-light outline outline-1 outline-red-dark outline-offset-0' : 'bg-gray-600'
+												)}
+											>
+												<div className='size-2 rounded-full bg-red-dark' />
+
+												<label className='text-sm font-bold text-gray-200'>
+
+													Não
+												</label>
+											</RadioGroup.Item>
+										</RadioGroup.Root>
+									)}
+								/>
 							</div>
 
-							<Form.Submit className='w-full py-4 px-6 rounded-md text-sm font-bold text-white bg-gray-200 hover:bg-gray-300'>
+							<Form.Submit
+								className={clsx(
+									'max-w-80 w-full h-12 py-4 px-6 bottom-[100px] mx-auto justify-self-center absolute',
+									'rounded-md text-sm font-bold text-white bg-gray-200 hover:bg-gray-300'
+								)}
+							>
 								Cadastrar refeição
 							</Form.Submit>
 						</Form.Root>
