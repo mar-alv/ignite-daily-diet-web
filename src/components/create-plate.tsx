@@ -8,6 +8,9 @@ import * as RadioGroup from '@radix-ui/react-radio-group'
 import { Controller, useForm } from 'react-hook-form'
 import { z } from 'zod'
 
+import { createPlate } from '../api/plates'
+import { CreatePlate as ICreatePlate } from '../interfaces'
+
 const createPlateSchema = z.object({
 	name: z.string().min(2),
 	description: z.string().optional(),
@@ -17,10 +20,37 @@ const createPlateSchema = z.object({
 type CreatePlateSchema = z.infer<typeof createPlateSchema>
 
 export function CreatePlate() {
-	const { control, handleSubmit, register, reset } = useForm<CreatePlateSchema>() 
+	const {
+		control,
+		handleSubmit,
+		register,
+		reset,
+		watch
+	} = useForm<CreatePlateSchema>({
+		mode: 'onChange',
+		defaultValues: {
+			name: '',
+			description: '',
+			inDiet: ''
+		}
+	})
 
-	function onSubmit(data: CreatePlateSchema) {
-		console.log(data)
+	const watchAllFields = watch()
+
+	const isFormValid = () => {
+		const { name, inDiet } = watchAllFields
+
+		return name && inDiet
+	}
+
+	async function onSubmit(data: CreatePlateSchema) {
+		const plate: ICreatePlate = {
+			name: data.name,
+			description: data.description ?? '',
+			inDiet: data.inDiet === 'true'
+		}
+
+		await createPlate(plate)
 
 		reset()
 	}
@@ -146,9 +176,12 @@ export function CreatePlate() {
 							</div>
 
 							<Form.Submit
+								disabled={!isFormValid()}
 								className={clsx(
 									'max-w-80 w-full h-12 py-4 px-6 bottom-[100px] mx-auto justify-self-center absolute',
-									'rounded-md text-sm font-bold text-white bg-gray-200 hover:bg-gray-300'
+									'rounded-md text-sm font-bold text-white bg-gray-100',
+									'hover:bg-gray-200',
+									'cursor-not-allowed disabled:bg-gray-400'
 								)}
 							>
 								Cadastrar refeição
