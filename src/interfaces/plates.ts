@@ -1,5 +1,5 @@
 export interface CreatePlate {
 	name: string
-	description: string
+	description?: string
 	inDiet: boolean
 }
