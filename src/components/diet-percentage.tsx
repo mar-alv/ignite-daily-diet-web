@@ -1,11 +1,16 @@
+import clsx from 'clsx'
+
 import * as Dialog from '@radix-ui/react-dialog'
+
 import 'react-loading-skeleton/dist/skeleton.css'
 import Skeleton from 'react-loading-skeleton'
+
 import { useQuery } from 'react-query'
 
 import { getUserMetrics } from '../api/users'
 import { ArrowLeft, ArrowUpRight } from '@phosphor-icons/react'
 
+// TODO: Show some other component when not being able to load the metrics
 export function DietPercentage() {
 	const { data } = useQuery('getUserMetrics', getUserMetrics, { suspense: true })
 
@@ -15,9 +20,23 @@ export function DietPercentage() {
 
 	return (
 		<Dialog.Root>
-			<section className='mt-8 px-4 py-5 grid rounded-lg bg-green-light'>
+			<section
+				className={
+					clsx(
+						'mt-8 px-4 py-5 grid rounded-lg',
+						dietPercentage < 50 ? 'bg-red-light' : 'bg-green-light'
+					)
+				}
+			>
 				<Dialog.Trigger asChild>
-					<ArrowUpRight className='size-6 justify-self-end cursor-pointer text-green-dark' />
+					<ArrowUpRight
+						className={
+							clsx(
+								'size-6 justify-self-end cursor-pointer',
+								dietPercentage < 50 ? 'text-red-dark' : 'text-green-dark'
+							)
+						}
+					/>
 				</Dialog.Trigger>
 
 				<div className='text-center'>

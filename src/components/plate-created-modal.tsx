@@ -7,10 +7,9 @@ import stayedOutOfDietImg from '../assets/stayed-out-of-diet.png'
 
 interface Props {
 	stayedInDiet: boolean
-	closeModalCallback(): void
 }
 
-export function PlateCreatedModal({ closeModalCallback, stayedInDiet }: Props) {
+export function PlateCreatedModal({ stayedInDiet }: Props) {
   return (
 		<Dialog.Content
 			aria-describedby={undefined}
@@ -53,7 +52,6 @@ export function PlateCreatedModal({ closeModalCallback, stayedInDiet }: Props) {
 			)}
 
 			<Dialog.Close
-				onClick={closeModalCallback}
 				className='mt-8 py-4 px-6 rounded-md text-sm font-bold text-white bg-gray-200 hover:bg-gray-300'
 			>
 				Ir para a página inicial

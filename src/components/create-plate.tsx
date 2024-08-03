@@ -62,13 +62,15 @@ export function CreatePlate() {
 		setStayedInDiet(data.inDiet === 'true')
 	}
 
-	function handleCloseModal() {
-		setPlateId('')
-		setStayedInDiet(false)
+	function handleModalOpenChange(open: boolean) {
+			if (!open) {
+				setPlateId('')
+				setStayedInDiet(false)
+			}
 	}
 
 	return (
-		<Dialog.Root>
+		<Dialog.Root onOpenChange={handleModalOpenChange}>
 			<section>
 				<h2 className='text-gray-100'>
 					Refeições
@@ -84,7 +86,7 @@ export function CreatePlate() {
 
 				<Dialog.Portal>
 					{plateId ? (
-						<PlateCreatedModal stayedInDiet={stayedInDiet} closeModalCallback={handleCloseModal} />
+						<PlateCreatedModal stayedInDiet={stayedInDiet} />
 					) : (
 						<Dialog.Content aria-describedby={undefined} className='fixed inset-0 bg-gray-500'>
 							<div className='p-6 flex text-center'>
