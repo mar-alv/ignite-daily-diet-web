@@ -1,4 +1,4 @@
-import { http, HttpResponse } from 'msw'
+import { delay, http, HttpResponse } from 'msw'
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { CreatePlate } from '../components'
@@ -21,7 +21,7 @@ export const Primary: Story = {
 		msw: {
 			handlers: [
 				http.post('http://localhost:3001/users/:userId/plates', async () => {
-				  await new Promise((resolve) => setTimeout(resolve, 2000))
+					await delay(2000)
 
 					return HttpResponse.json({
 						plateId: '54eed103-f6a5-49a4-9bed-93d2021632ed'

@@ -1,4 +1,4 @@
-import { http, HttpResponse } from 'msw'
+import { delay, http, HttpResponse } from 'msw'
 import { Meta, StoryObj } from '@storybook/react'
 
 import { QueryClient, QueryClientProvider } from 'react-query'
@@ -32,7 +32,7 @@ export const InDiet: Story = {
 		msw: {
 			handlers: [
 				http.get('http://localhost:3001/users/:userId/metrics', async () => {
-				  await new Promise((resolve) => setTimeout(resolve, 2000))
+					await delay(2000)
 
 					return HttpResponse.json({
 						bestDietSequence: 1,
