@@ -7,12 +7,11 @@ import Skeleton from 'react-loading-skeleton'
 
 import { useQuery } from 'react-query'
 
-import { getUserMetrics } from '../api/users'
+import { getMetrics } from '../api/users'
 import { ArrowLeft, ArrowUpRight } from '@phosphor-icons/react'
 
-// TODO: Show some other component when not being able to load the metrics
 export function DietPercentage() {
-	const { data } = useQuery('getUserMetrics', getUserMetrics, { suspense: true })
+	const { data } = useQuery('getMetrics', getMetrics, { suspense: true })
 
 	if (!data) return
 
@@ -125,6 +124,6 @@ export function DietPercentage() {
 
 export function DietPercentageSkeleton() {
 	return (
-		<Skeleton className='w-[327px] h-[102px] mt-8' baseColor='#e5f0db' highlightColor='#cbe4b4' />
+		<Skeleton className='w-[327px] h-[132px] mt-8' baseColor='#e5f0db' highlightColor='#cbe4b4' />
 	)
 }

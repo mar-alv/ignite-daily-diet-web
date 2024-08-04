@@ -1,12 +1,8 @@
-import { api } from '../lib/axios'
-import { CreatePlate } from '../interfaces'
+import { api } from '../lib'
+import { CreatePlateBody, CreatePlateResponse, GetPlatesResponse } from '../interfaces'
 import { env } from '../env'
 
-interface CreatePlateResponse {
-	plateId: string
-}
-
-export async function createPlate(plate: CreatePlate): Promise<CreatePlateResponse> {
+export async function createPlate(plate: CreatePlateBody): Promise<CreatePlateResponse> {
 	try {
 		const response = await api.post(`/${env.VITE_USER_ID}/plates`, plate)
 
@@ -15,5 +11,17 @@ export async function createPlate(plate: CreatePlate): Promise<CreatePlateRespon
 		// TODO: Treat erros with a toast
 
 		return { plateId: '' }
+	}
+}
+
+export async function getPlates(): Promise<GetPlatesResponse | null> {
+	try {
+		const response = await api.get(`/${env.VITE_USER_ID}/plates`)
+
+		return response.data
+	} catch (e) {
+		// TODO: Treat erros with a toast
+
+		return null
 	}
 }

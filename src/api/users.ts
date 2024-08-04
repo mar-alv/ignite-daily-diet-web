@@ -1,8 +1,8 @@
-import { api } from '../lib/axios'
+import { api } from '../lib'
 import { env } from '../env'
 import { Metrics } from '../interfaces'
 
-export async function getUserMetrics(): Promise<Metrics | null> {
+export async function getMetrics(): Promise<Metrics | null> {
 	try {
 		const response = await api.get(`/${env.VITE_USER_ID}/metrics`)
 

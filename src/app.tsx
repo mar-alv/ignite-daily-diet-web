@@ -1,7 +1,14 @@
 
 import { Suspense } from 'react'
 
-import { CreatePlate, DietPercentage, DietPercentageSkeleton, Header } from './components'
+import {
+	CreatePlate,
+	DietPercentage,
+	DietPercentageSkeleton,
+	Header,
+	Plates,
+	PlatesSkeleton
+} from './components'
 
 export function App() {
   return (
@@ -14,6 +21,10 @@ export function App() {
 				</Suspense>
 
 				<CreatePlate />
+
+				<Suspense fallback={<PlatesSkeleton />}>
+					<Plates />
+				</Suspense>
 			</div>
 		</div>
 	)

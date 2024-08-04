@@ -10,7 +10,7 @@ import { useState } from 'react'
 import { z } from 'zod'
 
 import { createPlate } from '../api/plates'
-import { CreatePlate as ICreatePlate } from '../interfaces'
+import { CreatePlateBody } from '../interfaces'
 import { PlateCreatedModal } from '../components'
 
 const createPlateSchema = z.object({
@@ -49,7 +49,7 @@ export function CreatePlate() {
 	}
 
 	async function onSubmit(data: CreatePlateSchema) {
-		const plate: ICreatePlate = {
+		const plate: CreatePlateBody = {
 			name: data.name,
 			description: data.description,
 			inDiet: data.inDiet === 'true'
