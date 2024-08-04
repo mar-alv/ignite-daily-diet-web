@@ -97,7 +97,7 @@ self.addEventListener('fetch', function (event) {
     return
   }
 
-  // Opening the DevTools triggers the "only-if-cached" request
+  // Opening the DevTools triggers the 'only-if-cached' request
   // that cannot be handled by the worker. Bypass such requests.
   if (request.cache === 'only-if-cached' && request.mode !== 'same-origin') {
     return
@@ -119,7 +119,7 @@ async function handleRequest(event, requestId) {
   const client = await resolveMainClient(event)
   const response = await getResponse(event, client, requestId)
 
-  // Send back the response clone for the "response:*" life-cycle events.
+  // Send back the response clone for the 'response:*' life-cycle events.
   // Ensure MSW is active and ready to handle the message, otherwise
   // this message will pend indefinitely.
   if (client && activeClientIds.has(client.id)) {
@@ -200,7 +200,7 @@ async function getResponse(event, client, requestId) {
 
   // Bypass initial page load requests (i.e. static assets).
   // The absence of the immediate/parent client in the map of the active clients
-  // means that MSW hasn't dispatched the "MOCK_ACTIVATE" event yet
+  // means that MSW hasn't dispatched the 'MOCK_ACTIVATE' event yet
   // and is not ready to handle requests.
   if (!activeClientIds.has(client.id)) {
     return passthrough()
@@ -266,7 +266,7 @@ function sendToClient(client, message, transferrables = []) {
 
 async function respondWithMock(response) {
   // Setting response status code to 0 is a no-op.
-  // However, when responding with a "Response.error()", the produced Response
+  // However, when responding with a 'Response.error()', the produced Response
   // instance will have status code set to 0. Since it's not possible to create
   // a Response instance with status code 0, handle that use-case separately.
   if (response.status === 0) {

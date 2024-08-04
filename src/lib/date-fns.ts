@@ -16,7 +16,7 @@ export const dateFns = {
 	},
 	toFormattedCreatedAt(date: string) {
 		const parsedDate = parseISO(date)
-		const formattedDate = format(parsedDate, "dd/MM/yyyy 'às' HH:mm", { locale: ptBR })
+		const formattedDate = format(parsedDate, 'dd/MM/yyyy \'às\' HH:mm', { locale: ptBR })
 
 		return formattedDate
 	}
