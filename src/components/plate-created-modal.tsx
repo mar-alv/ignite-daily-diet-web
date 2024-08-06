@@ -56,9 +56,9 @@ export function PlateCreatedModal({ stayedInDiet }: Props) {
 			)}
 
 			<Dialog.Close
-				className='mt-8 py-4 px-6 rounded-md text-sm font-bold text-white bg-gray-200 hover:bg-gray-300'
+				className='w-full mt-8 py-4 px-6 rounded-md text-sm font-bold text-white bg-gray-200 hover:bg-gray-300'
 			>
-				Ir para a página inicial
+				Continuar
 			</Dialog.Close>
 		</Dialog.Content>
  	)
