@@ -1,14 +1,11 @@
 import clsx from 'clsx'
 
-import * as Dialog from '@radix-ui/react-dialog'
-
 import 'react-loading-skeleton/dist/skeleton.css'
 import Skeleton from 'react-loading-skeleton'
 
 import { useQuery } from 'react-query'
 
 import { getMetrics } from '../api/users'
-import { ArrowLeft, ArrowUpRight } from '@phosphor-icons/react'
 
 export function DietPercentage() {
 	const { data } = useQuery('getMetrics', getMetrics, { suspense: true })
@@ -18,112 +15,85 @@ export function DietPercentage() {
 	const { bestDietSequence, dietPercentage, platesAmount, platesOnDiet, platesOutOfDiet } = data
 
 	return (
-		<Dialog.Root>
-			<section
-				className={
-					clsx(
-						'mt-8 px-4 py-5 grid rounded-lg',
-						dietPercentage < 50 ? 'bg-red-light' : 'bg-green-light'
-					)
-				}
+		<section className='mt-8 gap-3 flex flex-wrap justify-between text-center'>
+			<article
+				className={clsx(
+					'p-4 flex-1 flex flex-col justify-center rounded-lg',
+					dietPercentage < 50 ? 'bg-red-light' : 'bg-green-light'
+				)}
 			>
-				<Dialog.Trigger asChild>
-					<ArrowUpRight
-						className={
-							clsx(
-								'size-6 justify-self-end cursor-pointer',
-								dietPercentage < 50 ? 'text-red-dark' : 'text-green-dark'
-							)
-						}
-					/>
-				</Dialog.Trigger>
+				<h1 className='text-[2rem] font-bold text-gray-100'>
+					{dietPercentage}%
+				</h1>
 
-				<div className='text-center'>
-					<h1 className='text-[2rem] font-bold text-gray-100'>
-						{dietPercentage}%
-					</h1>
+				<p className='text-sm text-gray-200'>
+					das refeições dentro da dieta
+				</p>
+			</article>
+
+			<article className='gap-3 grid flex-1'>
+				<div className='p-4 rounded-lg bg-gray-600'>
+					<h3 className='text-2xl text-gray-100'>
+						{bestDietSequence}
+					</h3>
 
 					<p className='text-sm text-gray-200'>
-						das refeições dentro da dieta
+						melhor sequência de pratos dentro da dieta
 					</p>
 				</div>
-			</section>
 
-			<Dialog.Portal>
-				<Dialog.Content aria-describedby={undefined} className='fixed inset-0 bg-green-light'>
-					<Dialog.Title className='sr-only'>
-						Métricas da sua dieta
-					</Dialog.Title>
+				<div className='p-4 rounded-lg bg-gray-600'>
+					<h3 className='text-2xl text-gray-100'>
+						{platesAmount}
+					</h3>
 
-					<section className='grid text-center rounded-lg px-4 py-5 mt-8'>
-						<Dialog.Close className='justify-self-start'>
-							<ArrowLeft className='size-6 text-green-dark' />
-						</Dialog.Close>
+					<p className='text-sm text-gray-200'>
+						refeições registradas
+					</p>
+				</div>
+			</article>
 
-						<h1 className='text-gray-100 text-[2rem] font-bold'>
-							{dietPercentage}%
-						</h1>
+			<article  className='gap-3 grid flex-1'>
+				<div className='p-4 rounded-lg bg-green-light'>
+					<h3 className='text-2xl text-gray-100'>
+						{platesOnDiet}
+					</h3>
 
-						<p className='text-gray-200 text-sm'>
-							das refeições dentro da dieta
-						</p>
-					</section>
+					<p className='text-sm text-gray-200'>
+						refeições dentro da dieta
+					</p>
+				</div>
 
-					<section className='h-full p-6 rounded-s-2xl rounded-e-2xl text-center bg-gray-700'>
-						<h2 className='text-sm text-gray-100'>
-							Estatísticas gerais
-						</h2>
+				<div className='p-4 rounded-lg bg-red-light'>
+					<h3 className='text-2xl text-gray-100'>
+						{platesOutOfDiet}
+					</h3>
 
-						<div className='mt-6 grid grid-cols-2 grid-rows-4 gap-3'>
-							<div className='p-4 col-span-2 rounded-lg bg-gray-600'>
-								<h3 className='text-2xl text-gray-100'>
-									{bestDietSequence}
-								</h3>
-
-								<p className='text-sm text-gray-200'>
-									melhor sequência de pratos dentro da dieta
-								</p>
-							</div>
-
-							<div className='p-4 col-span-2 rounded-lg bg-gray-600'>
-								<h3 className='text-2xl text-gray-100'>
-									{platesAmount}
-								</h3>
-
-								<p className='text-sm text-gray-200'>
-									refeições registradas
-								</p>
-							</div>
-
-							<div className='p-4 rounded-lg bg-green-light'>
-								<h3 className='text-2xl text-gray-100'>
-									{platesOnDiet}
-								</h3>
-
-								<p className='text-sm text-gray-200'>
-									refeições dentro da dieta
-								</p>
-							</div>
-
-							<div className='p-4 rounded-lg bg-red-light'>
-								<h3 className='text-2xl text-gray-100'>
-									{platesOutOfDiet}
-								</h3>
-
-								<p className='text-sm text-gray-200'>
-									refeições fora da dieta
-								</p>
-							</div>
-						</div>
-					</section>
-				</Dialog.Content>
-    	</Dialog.Portal>
-		</Dialog.Root>
+					<p className='text-sm text-gray-200'>
+						refeições fora da dieta
+					</p>
+				</div>
+			</article>
+		</section>
 	)
 }
 
 export function DietPercentageSkeleton() {
 	return (
-		<Skeleton className='w-[327px] h-[132px] mt-8' baseColor='#e5f0db' highlightColor='#cbe4b4' />
+		<section className='mt-8 gap-3 flex flex-wrap justify-between text-center'>
+			<article className='flex-1'>
+				<Skeleton height={180} baseColor='#e5f0db' highlightColor='#cbe4b4' className='rounded-lg' />
+			</article>
+
+			<article className='gap-3 grid flex-1'>
+				<Skeleton height={84} className='rounded-lg'/>
+				<Skeleton height={84} className='rounded-lg'/>
+			</article>
+
+			<article  className='gap-3 grid flex-1'>
+				<Skeleton height={84} baseColor='#e5f0db' highlightColor='#cbe4b4' className='rounded-lg' />
+				<Skeleton height={84} baseColor='#f4e6e7' highlightColor='#bf3b44' className='rounded-lg' />
+			</article>
+		</section>
 	)
 }
