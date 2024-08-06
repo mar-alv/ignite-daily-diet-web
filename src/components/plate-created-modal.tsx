@@ -13,9 +13,13 @@ export function PlateCreatedModal({ stayedInDiet }: Props) {
   return (
 		<Dialog.Content
 			aria-describedby={undefined}
-			className='fixed inset-0 grid justify-items-center place-content-center text-center bg-gray-700'
+			className={clsx(
+				'max-w-sm w-full fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2',
+				'p-8 grid justify-items-center',
+				'rounded-s-2xl rounded-e-2xl bg-gray-700'
+			)}
 		>
-			<div className='gap-2 grid'>
+			<div className='gap-2 grid text-center'>
 				<Dialog.Title
 					className={clsx(
 						'text-2xl font-bold',
@@ -57,5 +61,5 @@ export function PlateCreatedModal({ stayedInDiet }: Props) {
 				Ir para a página inicial
 			</Dialog.Close>
 		</Dialog.Content>
- )
+ 	)
 }

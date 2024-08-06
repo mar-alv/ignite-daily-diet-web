@@ -42,7 +42,7 @@ export function Plate({ plate }: Props) {
 				<Dialog.Content
 					aria-describedby={undefined}
 					className={clsx(
-						'fixed inset-0 bg-gray-500',
+						'inset-0 absolute flex flex-col bg-gray-500',
 						inDiet ? 'bg-green-light' : 'bg-red-light'
 					)}
 				>
@@ -56,7 +56,7 @@ export function Plate({ plate }: Props) {
 						</Dialog.Title>
 					</div>	
 
-					<div className='h-full p-6 gap-6 grid items-center content-start relative rounded-s-2xl rounded-e-2xl bg-gray-700'>
+					<div className='p-6 gap-6 flex-1 flex flex-col justify-between rounded-s-2xl rounded-e-2xl bg-gray-700'>
 						<div className='gap-6 grid'>
 							<div className='gap-2 grid'>
 								<h1 className='text-xl font-bold text-gray-100'>
@@ -94,17 +94,11 @@ export function Plate({ plate }: Props) {
 							</div>
 						</div>
 
-						{/* <Form.Submit
-							disabled={!isFormValid()}
-							className={clsx(
-								'max-w-80 w-full h-12 py-4 px-6 bottom-[100px] mx-auto justify-self-center absolute',
-								'rounded-md text-sm font-bold text-white bg-gray-100',
-								'hover:bg-gray-200',
-								!isFormValid() && 'cursor-not-allowed disabled:bg-gray-400'
-							)}
-						>
-							Cadastrar refeição
-						</Form.Submit> */}
+						<div>
+							<button className=''>
+								Cadastrar refeição
+							</button>
+						</div>
 					</div>
 				</Dialog.Content>
 			</Dialog.Portal>

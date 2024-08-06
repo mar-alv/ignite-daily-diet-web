@@ -55,6 +55,7 @@ export function CreatePlate() {
 			inDiet: data.inDiet === 'true'
 		}
 
+		// TODO: make it depend of a react query mutation
 		const { plateId } = await createPlate(plate)
 
 		reset()
@@ -76,7 +77,12 @@ export function CreatePlate() {
 					Refeições
 				</h2>
 
-				<Dialog.Trigger className='w-full mt-2 py-4 px-6 gap-3 flex justify-center rounded-md text-white bg-gray-200 hover:bg-gray-300'>
+				<Dialog.Trigger
+					className={clsx(
+						'w-full mt-2 py-4 px-6 gap-3 flex justify-center',
+						'rounded-md text-white bg-gray-200 hover:bg-gray-300'
+					)}
+				>
 					<Plus className='size-[18px]' />
 
 					<span className='text-sm font-bold'>
@@ -88,7 +94,13 @@ export function CreatePlate() {
 					{plateId ? (
 						<PlateCreatedModal stayedInDiet={stayedInDiet} />
 					) : (
-						<Dialog.Content aria-describedby={undefined} className='fixed inset-0 bg-gray-500'>
+						<Dialog.Content
+							aria-describedby={undefined}
+							className={clsx(
+								'max-w-sm w-full fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2',
+								'rounded-s-2xl rounded-e-2xl bg-gray-700'
+							)}
+						>
 							<div className='p-6 flex text-center'>
 								<Dialog.Close>
 									<ArrowLeft className='size-6 text-gray-200' />
@@ -97,11 +109,11 @@ export function CreatePlate() {
 								<Dialog.Title className='flex-1 text-lg font-bold text-gray-100'>
 									Nova refeição
 								</Dialog.Title>
-							</div>	
+							</div>
 
 							<Form.Root
 								onSubmit={handleSubmit(onSubmit)}
-								className='h-full p-6 gap-6 grid items-center content-start relative rounded-s-2xl rounded-e-2xl bg-gray-700'
+								className='p-6 gap-6 grid items-center content-start'
 							>
 								<Form.Field name='name' className='grid gap-2'>
 									<Form.Label className='text-sm font-bold text-gray-200'>
@@ -195,7 +207,7 @@ export function CreatePlate() {
 								<Form.Submit
 									disabled={!isFormValid()}
 									className={clsx(
-										'max-w-80 w-full h-12 py-4 px-6 bottom-[100px] mx-auto justify-self-center absolute',
+										'w-full h-12 py-4 px-6',
 										'rounded-md text-sm font-bold text-white bg-gray-100',
 										'hover:bg-gray-200',
 										!isFormValid() && 'cursor-not-allowed disabled:bg-gray-400'
