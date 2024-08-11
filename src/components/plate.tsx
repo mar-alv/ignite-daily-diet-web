@@ -1,10 +1,9 @@
 import clsx from 'clsx'
-
 import * as Dialog from '@radix-ui/react-dialog'
+import { PencilSimpleLine, Trash, X } from '@phosphor-icons/react'
 
 import { dateFns } from '../lib'
 import { Plate as IPlate } from '../interfaces'
-import { ArrowLeft } from '@phosphor-icons/react'
 
 interface Props {
 	plate: IPlate
@@ -39,24 +38,20 @@ export function Plate({ plate }: Props) {
 			</Dialog.Trigger>
 
 			<Dialog.Portal>
-				<Dialog.Content
-					aria-describedby={undefined}
-					className={clsx(
-						'inset-0 absolute flex flex-col bg-gray-500',
-						inDiet ? 'bg-green-light' : 'bg-red-light'
-					)}
-				>
-					<div className='p-6 flex text-center'>
+				<Dialog.Overlay className='inset-0 absolute bg-gray-300 bg-opacity-70' />
+
+				<Dialog.Content aria-describedby={undefined} className='max-w-sm w-full p-6 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-s-2xl rounded-e-2xl bg-gray-700'>
+					<div className='flex justify-end'>
 						<Dialog.Close>
-							<ArrowLeft className='size-6 text-gray-200' />
+							<X className='size-6 text-gray-200' />
 						</Dialog.Close>
 
-						<Dialog.Title className='flex-1 text-lg font-bold text-gray-100'>
+						<Dialog.Title className='sr-only'>
 							Refeição
 						</Dialog.Title>
-					</div>	
+					</div>
 
-					<div className='p-6 gap-6 flex-1 flex flex-col justify-between rounded-s-2xl rounded-e-2xl bg-gray-700'>
+					<div className='gap-6 flex-1 flex flex-col justify-between rounded-s-2xl rounded-e-2xl'>
 						<div className='gap-6 grid'>
 							<div className='gap-2 grid'>
 								<h1 className='text-xl font-bold text-gray-100'>
@@ -94,9 +89,17 @@ export function Plate({ plate }: Props) {
 							</div>
 						</div>
 
-						<div>
-							<button className=''>
-								Cadastrar refeição
+						<div className='gap-2 grid justify-items-center'>
+							<button className='max-w-80 w-full py-4 px-6 gap-3 flex justify-center items-center rounded-md border-[1px] border-gray-100 text-sm text-white bg-gray-100 hover:bg-gray-300'>
+								<PencilSimpleLine size={18} />
+
+								Editar refeição
+							</button>
+
+							<button className='max-w-80 w-full py-4 px-6 gap-3 flex justify-center items-center rounded-md border-[1px] border-gray-100 text-sm text-gray-100 hover:bg-gray-600'>
+								<Trash size={18} />
+
+								Excluir refeição
 							</button>
 						</div>
 					</div>

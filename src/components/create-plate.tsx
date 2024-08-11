@@ -70,7 +70,6 @@ export function CreatePlate() {
 			}
 	}
 
-	// TODO: add overlay
 	return (
 		<Dialog.Root onOpenChange={handleModalOpenChange}>
 			<section>
@@ -78,12 +77,7 @@ export function CreatePlate() {
 					Refeições
 				</h2>
 
-				<Dialog.Trigger
-					className={clsx(
-						'w-full mt-2 py-4 px-6 gap-3 flex justify-center',
-						'rounded-md text-white bg-gray-200 hover:bg-gray-300'
-					)}
-				>
+				<Dialog.Trigger className='w-full mt-2 py-4 px-6 gap-3 flex justify-center rounded-md text-white bg-gray-200 hover:bg-gray-300'>
 					<Plus className='size-[18px]' />
 
 					<span className='text-sm font-bold'>
@@ -92,16 +86,12 @@ export function CreatePlate() {
 				</Dialog.Trigger>
 
 				<Dialog.Portal>
+					<Dialog.Overlay className='inset-0 absolute bg-gray-300 bg-opacity-70' />
+
 					{plateId ? (
 						<PlateCreatedModal stayedInDiet={stayedInDiet} />
 					) : (
-						<Dialog.Content
-							aria-describedby={undefined}
-							className={clsx(
-								'max-w-sm w-full p-6 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2',
-								'rounded-s-2xl rounded-e-2xl bg-gray-700'
-							)}
-						>
+						<Dialog.Content aria-describedby={undefined} className='max-w-sm w-full p-6 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-s-2xl rounded-e-2xl bg-gray-700'>
 							<div className='flex justify-end'>
 								<Dialog.Close>
 									<X className='size-6 text-gray-200' />
@@ -112,10 +102,7 @@ export function CreatePlate() {
 								Nova refeição
 							</Dialog.Title>
 
-							<Form.Root
-								onSubmit={handleSubmit(onSubmit)}
-								className='gap-6 grid items-center content-start'
-							>
+							<Form.Root onSubmit={handleSubmit(onSubmit)} className='gap-6 grid items-center content-start'>
 								<Form.Field name='name' className='grid gap-2'>
 									<Form.Label className='text-sm font-bold text-gray-200'>
 										Nome
@@ -125,11 +112,7 @@ export function CreatePlate() {
 										minLength={2}
 										placeholder='Sanduíche'
 										required
-										className={clsx(
-											'p-[0.875rem] text-gray-100 border-[1px] border-gray-500 rounded-md outline-none',
-											'placeholder:text-gray-400',
-											'focus:border-gray-300'
-										)}
+										className='p-[0.875rem] text-gray-100 border-[1px] border-gray-500 rounded-md outline-none placeholder:text-gray-400 focus:border-gray-300'
 										{...register('name')}
 									/>
 
@@ -146,16 +129,14 @@ export function CreatePlate() {
 									<Form.Control asChild>
 										<textarea 
 											placeholder='Sanduíche de pão integral com atum e salada de alface e tomate'
-											className={clsx(
-												'h-[120px] p-[0.875rem] text-gray-100 border-[1px] border-gray-500 rounded-md outline-none resize-none',
-												'placeholder:text-gray-400',
-												'focus:border-gray-300'
-											)}
+											className='h-[120px] p-[0.875rem] text-gray-100 border-[1px] border-gray-500 rounded-md outline-none resize-none placeholder:text-gray-400 focus:border-gray-300'
 											{...register('description')}
 										>
 										</textarea>
 									</Form.Control>
 								</Form.Field>
+
+								{/* TODO: add date and hour picker */}
 
 								<div>
 									<p className='text-sm font-bold text-gray-200'>
@@ -208,9 +189,7 @@ export function CreatePlate() {
 								<Form.Submit
 									disabled={!isFormValid()}
 									className={clsx(
-										'w-full h-12 mt-4 py-4 px-6',
-										'rounded-md text-sm font-bold text-white bg-gray-100',
-										'hover:bg-gray-200',
+										'w-full h-12 mt-4 py-4 px-6 rounded-md text-sm font-bold text-white bg-gray-100 hover:bg-gray-300',
 										!isFormValid() && 'cursor-not-allowed disabled:bg-gray-400'
 									)}
 								>

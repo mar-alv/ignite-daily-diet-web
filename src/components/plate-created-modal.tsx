@@ -11,14 +11,7 @@ interface Props {
 
 export function PlateCreatedModal({ stayedInDiet }: Props) {
   return (
-		<Dialog.Content
-			aria-describedby={undefined}
-			className={clsx(
-				'max-w-sm w-full fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2',
-				'p-8 grid justify-items-center',
-				'rounded-s-2xl rounded-e-2xl bg-gray-700'
-			)}
-		>
+		<Dialog.Content aria-describedby={undefined} className='max-w-sm w-full fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-8 grid justify-items-center rounded-s-2xl rounded-e-2xl bg-gray-700'>
 			<div className='gap-2 grid text-center'>
 				<Dialog.Title
 					className={clsx(
@@ -52,12 +45,11 @@ export function PlateCreatedModal({ stayedInDiet }: Props) {
 				<img
 					src={stayedOutOfDietImg}
 					alt='Pessoa sentada, triste por ter pulado sua dieta'
-					className='mt-10' />
+					className='mt-10'
+				/>
 			)}
 
-			<Dialog.Close
-				className='w-full mt-8 py-4 px-6 rounded-md text-sm font-bold text-white bg-gray-200 hover:bg-gray-300'
-			>
+			<Dialog.Close className='w-full mt-8 py-4 px-6 rounded-md text-sm font-bold text-white bg-gray-200 hover:bg-gray-300'>
 				Continuar
 			</Dialog.Close>
 		</Dialog.Content>
