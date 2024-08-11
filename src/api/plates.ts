@@ -25,3 +25,13 @@ export async function getPlates(): Promise<GetPlatesResponse | null> {
 		return null
 	}
 }
+
+export async function deletePlate(id: string) {
+	try {
+		await api.delete(`/${env.VITE_USER_ID}/plates/${id}`)
+	} catch (e) {
+		// TODO: Treat erros with a toast
+
+		return null
+	}
+}
