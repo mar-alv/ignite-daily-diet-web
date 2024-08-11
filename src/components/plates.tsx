@@ -11,6 +11,7 @@ import { Plate } from '.'
 import { Plate as IPlate } from '../interfaces'
 import { CaretDown } from '@phosphor-icons/react'
 
+// TODO: create stories
 export function Plates() {
 	const { data } = useQuery('getPlates', getPlates, { suspense: true })
 
