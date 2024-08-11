@@ -1,5 +1,5 @@
 import { api } from '../lib'
-import { CreatePlateBody, CreatePlateResponse, GetPlatesResponse } from '../interfaces'
+import { CreatePlateBody, CreatePlateResponse, GetPlatesResponse, UpdatePlateBody, UpdatePlateResponse } from '../interfaces'
 import { env } from '../env'
 
 export async function createPlate(plate: CreatePlateBody): Promise<CreatePlateResponse> {
@@ -23,6 +23,18 @@ export async function getPlates(): Promise<GetPlatesResponse | null> {
 		// TODO: Treat erros with a toast
 
 		return null
+	}
+}
+
+export async function updatePlate(plate: UpdatePlateBody): Promise<UpdatePlateResponse> {
+	try {
+		const response = await api.put(`/${env.VITE_USER_ID}/plates/${plate.id}`, plate)
+
+		return response.data
+	} catch (e) {
+		// TODO: Treat erros with a toast
+
+		return { plateId: '' }
 	}
 }
 

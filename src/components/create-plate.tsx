@@ -42,8 +42,8 @@ export function CreatePlate() {
 
 	const watchAllFields = watch()
 
-	const isFormValid = () => {
-		const { name, inDiet } = watchAllFields
+	function isFormValid() {
+		const { inDiet, name } = watchAllFields
 
 		return name && inDiet
 	}
