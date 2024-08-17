@@ -192,7 +192,7 @@ export function CreatePlate() {
 									disabled={!isFormValid() || isLoading}
 									className={clsx(
 										'w-full h-12 mt-4 py-4 px-6 flex justify-center items-center rounded-md text-sm font-bold text-white bg-gray-100 hover:bg-gray-300',
-										!isFormValid() && 'cursor-not-allowed disabled:bg-gray-400'
+										(!isFormValid() || isLoading) && 'cursor-not-allowed disabled:bg-gray-400'
 									)}
 								>
 									{isLoading ? (

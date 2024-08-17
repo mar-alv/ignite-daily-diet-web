@@ -4,13 +4,14 @@ import * as Dialog from '@radix-ui/react-dialog'
 import * as Form from '@radix-ui/react-form'
 import * as RadioGroup from '@radix-ui/react-radio-group'
 
-import { PencilSimpleLine, X } from '@phosphor-icons/react'
+import { CircleNotch, PencilSimpleLine, X } from '@phosphor-icons/react'
 
 import { Controller, useForm } from 'react-hook-form'
+import { useMutation, useQueryClient } from 'react-query'
 import { z } from 'zod'
 
 import { updatePlate } from '../api/plates'
-import { Plate, UpdatePlateBody } from '../interfaces'
+import { Plate } from '../interfaces'
 
 interface Props {
 	plate: Plate
@@ -26,6 +27,14 @@ type UpdatePlateSchema = z.infer<typeof updatePlateSchema>
 
 // TODO: create stories
 export function UpdatePlateButton({ plate }: Props) {
+	const queryClient = useQueryClient()
+
+	const { isLoading, mutate } = useMutation(updatePlate, {
+		onSuccess: () => {
+			queryClient.invalidateQueries('getPlates')
+		}
+	})
+
 	const {
 		control,
 		handleSubmit,
@@ -49,19 +58,13 @@ export function UpdatePlateButton({ plate }: Props) {
 		return description || inDiet || name
 	}
 
-	// TODO: close modal on submit
 	async function onSubmit(data: UpdatePlateSchema) {
-		const updatedPlate: UpdatePlateBody = {
+		mutate({
 			id: plate.id,
 			name: data.name,
 			description: data.description,
 			inDiet: data.inDiet === 'true'
-		}
-
-		// TODO: make it depend of a react query mutation
-		await updatePlate(updatedPlate)
-
-		reset()
+		})
 	}
 
 	function handleModalOpenChange(open: boolean) {
@@ -70,7 +73,6 @@ export function UpdatePlateButton({ plate }: Props) {
 			}
 	}
 
-	// TODO: loading btn as the plate is updated
 	return (
 		<Dialog.Root onOpenChange={handleModalOpenChange}>
 			<Dialog.Trigger className='max-w-80 w-full py-4 px-6 gap-3 flex justify-center items-center rounded-md border-[1px] border-gray-100 text-sm text-white bg-gray-100 hover:bg-gray-300'>
@@ -178,13 +180,17 @@ export function UpdatePlateButton({ plate }: Props) {
 						</div>
 
 						<Form.Submit
-							disabled={!isFormValid()}
+							disabled={!isFormValid() || isLoading}
 							className={clsx(
-								'w-full h-12 mt-4 py-4 px-6 rounded-md text-sm font-bold text-white bg-gray-100 hover:bg-gray-300',
-								!isFormValid() && 'cursor-not-allowed disabled:bg-gray-400'
+								'w-full h-12 mt-4 py-4 px-6 flex justify-center items-center rounded-md text-sm font-bold text-white bg-gray-100 hover:bg-gray-300',
+								(!isFormValid() || isLoading) && 'cursor-not-allowed disabled:bg-gray-400'
 							)}
 						>
-							Salvar alterações
+							{isLoading ? (
+								<CircleNotch size={18} className='animate-spin' />
+							) :
+								'Salvar alterações'
+							}
 						</Form.Submit>
 					</Form.Root>
 				</Dialog.Content>
