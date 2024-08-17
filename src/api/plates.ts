@@ -13,9 +13,11 @@ export async function createPlate(plate: CreatePlateBody): Promise<CreatePlateRe
 	try {
 		const response = await api.post(`/${env.VITE_USER_ID}/plates`, plate)
 
+		toastify.successToast('Refeição criada com sucesso!')
+
 		return response.data
 	} catch (e) {
-		// TODO: Treat erros with a toast
+		toastify.errorToast('Não foi possível criar a refeição!')
 
 		return { plateId: '' }
 	}
@@ -27,7 +29,7 @@ export async function getPlates(): Promise<GetPlatesResponse | null> {
 
 		return response.data
 	} catch (e) {
-		// TODO: Treat erros with a toast
+		toastify.errorToast('Não foi possível listar as refeições criadas!')
 
 		return null
 	}
@@ -37,9 +39,11 @@ export async function updatePlate(plate: UpdatePlateBody): Promise<UpdatePlateRe
 	try {
 		const response = await api.put(`/${env.VITE_USER_ID}/plates/${plate.id}`, plate)
 
+		toastify.successToast('Refeição atualizada com sucesso!')
+
 		return response.data
 	} catch (e) {
-		// TODO: Treat erros with a toast
+		toastify.errorToast('Não foi possível atualizar a refeição!')
 
 		return { plateId: '' }
 	}
