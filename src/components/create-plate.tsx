@@ -1,4 +1,4 @@
-import { Plus, X } from '@phosphor-icons/react'
+import { CircleNotch, Plus, X } from '@phosphor-icons/react'
 import { clsx } from 'clsx'
 
 import * as Dialog from '@radix-ui/react-dialog'
@@ -6,11 +6,11 @@ import * as Form from '@radix-ui/react-form'
 import * as RadioGroup from '@radix-ui/react-radio-group'
 
 import { Controller, useForm } from 'react-hook-form'
+import { useMutation } from 'react-query'
 import { useState } from 'react'
 import { z } from 'zod'
 
 import { createPlate } from '../api/plates'
-import { CreatePlateBody } from '../interfaces'
 import { PlateCreatedModal } from '../components'
 
 const createPlateSchema = z.object({
@@ -22,8 +22,14 @@ const createPlateSchema = z.object({
 type CreatePlateSchema = z.infer<typeof createPlateSchema>
 
 export function CreatePlate() {
-	const [plateId, setPlateId] = useState('')
+	const [showCreatedModal, setShowCreatedModal] = useState(false)
 	const [stayedInDiet, setStayedInDiet] = useState(false)
+
+	const { isLoading, mutate } = useMutation(createPlate, {
+		onSuccess: () => {
+			setShowCreatedModal(true)
+		}
+	})
 
 	const {
 		control,
@@ -49,28 +55,23 @@ export function CreatePlate() {
 	}
 
 	async function onSubmit(data: CreatePlateSchema) {
-		const plate: CreatePlateBody = {
+		mutate({
 			name: data.name,
 			description: data.description,
 			inDiet: data.inDiet === 'true'
-		}
-
-		// TODO: make it depend of a react query mutation
-		const { plateId } = await createPlate(plate)
+		})
 
 		reset()
-		setPlateId(plateId)
 		setStayedInDiet(data.inDiet === 'true')
 	}
 
 	function handleModalOpenChange(open: boolean) {
 			if (!open) {
-				setPlateId('')
+				setShowCreatedModal(false)
 				setStayedInDiet(false)
 			}
 	}
 
-	// TODO: loading btn as the plate is created
 	return (
 		<Dialog.Root onOpenChange={handleModalOpenChange}>
 			<section>
@@ -89,7 +90,7 @@ export function CreatePlate() {
 				<Dialog.Portal>
 					<Dialog.Overlay className='inset-0 absolute bg-gray-300 bg-opacity-70' />
 
-					{plateId ? (
+					{showCreatedModal ? (
 						<PlateCreatedModal stayedInDiet={stayedInDiet} />
 					) : (
 						<Dialog.Content aria-describedby={undefined} className='max-w-sm w-full p-6 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-s-2xl rounded-e-2xl bg-gray-700'>
@@ -188,13 +189,17 @@ export function CreatePlate() {
 								</div>
 
 								<Form.Submit
-									disabled={!isFormValid()}
+									disabled={!isFormValid() || isLoading}
 									className={clsx(
-										'w-full h-12 mt-4 py-4 px-6 rounded-md text-sm font-bold text-white bg-gray-100 hover:bg-gray-300',
+										'w-full h-12 mt-4 py-4 px-6 flex justify-center items-center rounded-md text-sm font-bold text-white bg-gray-100 hover:bg-gray-300',
 										!isFormValid() && 'cursor-not-allowed disabled:bg-gray-400'
 									)}
 								>
-									Cadastrar refeição
+									{isLoading ? (
+										<CircleNotch size={18} className='animate-spin' />
+									) :
+										'Cadastrar refeição'
+									}
 								</Form.Submit>
 							</Form.Root>
 						</Dialog.Content>
