@@ -10,8 +10,8 @@ import { Controller, useForm } from 'react-hook-form'
 import { useMutation, useQueryClient } from 'react-query'
 import { z } from 'zod'
 
-import { updatePlate } from '../api/plates'
-import { Plate } from '../interfaces'
+import { updatePlate } from '@/api'
+import { Plate } from '@/interfaces'
 
 interface Props {
 	plate: Plate

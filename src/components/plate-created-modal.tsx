@@ -2,8 +2,8 @@ import clsx from 'clsx'
 
 import * as Dialog from '@radix-ui/react-dialog'
 
-import stayedInDietImg from '../assets/stayed-in-diet.png'
-import stayedOutOfDietImg from '../assets/stayed-out-of-diet.png'
+import stayedInDietImg from '@/assets/stayed-in-diet.png'
+import stayedOutOfDietImg from '@/assets/stayed-out-of-diet.png'
 
 interface Props {
 	stayedInDiet: boolean

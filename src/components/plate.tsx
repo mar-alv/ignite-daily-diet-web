@@ -4,9 +4,9 @@ import * as Accordion from '@radix-ui/react-accordion'
 
 import { memo } from 'react'
 
-import { dateFns } from '../lib'
-import { Plate as IPlate } from '../interfaces'
-import { DeletePlateButton, UpdatePlateButton } from '.'
+import { dateFns } from '@/lib'
+import { Plate as IPlate } from '@/interfaces'
+import { DeletePlateButton, UpdatePlateButton } from '@/components'
 
 interface Props {
 	plate: IPlate

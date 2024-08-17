@@ -4,7 +4,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { Suspense } from 'react'
 
-import { DietPercentage, DietPercentageSkeleton } from '../components'
+import { DietPercentage, DietPercentageSkeleton } from '@/components'
 
 const queryClient = new QueryClient()
 

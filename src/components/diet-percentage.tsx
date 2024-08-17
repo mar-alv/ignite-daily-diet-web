@@ -5,7 +5,7 @@ import Skeleton from 'react-loading-skeleton'
 
 import { useQuery } from 'react-query'
 
-import { getMetrics } from '../api/users'
+import { getMetrics } from '@/api'
 
 export function DietPercentage() {
 	const { data } = useQuery('getMetrics', getMetrics, { suspense: true })

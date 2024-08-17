@@ -10,8 +10,8 @@ import { useMutation } from 'react-query'
 import { useState } from 'react'
 import { z } from 'zod'
 
-import { createPlate } from '../api/plates'
-import { PlateCreatedModal } from '../components'
+import { createPlate } from '@/api'
+import { PlateCreatedModal } from '@/components'
 
 const createPlateSchema = z.object({
 	name: z.string().min(2),

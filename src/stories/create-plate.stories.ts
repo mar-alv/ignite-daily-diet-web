@@ -1,7 +1,7 @@
 import { delay, http, HttpResponse } from 'msw'
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { CreatePlate } from '../components'
+import { CreatePlate } from '@/components'
 
 const meta = {
   title: 'components/create plate',

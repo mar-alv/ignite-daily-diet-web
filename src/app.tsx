@@ -9,7 +9,7 @@ import {
 	Header,
 	Plates,
 	PlatesSkeleton
-} from './components'
+} from '@/components'
 
 export function App() {
   return (

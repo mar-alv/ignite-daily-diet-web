@@ -1,6 +1,6 @@
-import { api } from '../lib'
-import { env } from '../env'
-import { Metrics } from '../interfaces'
+import { api } from '@/lib'
+import { env } from '@/env'
+import { Metrics } from '@/interfaces'
 
 export async function getMetrics(): Promise<Metrics | null> {
 	try {

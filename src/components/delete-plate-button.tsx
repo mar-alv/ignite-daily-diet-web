@@ -4,7 +4,7 @@ import { CircleNotch, Trash } from '@phosphor-icons/react'
 
 import { useMutation, useQueryClient } from 'react-query'
 
-import { deletePlate } from '../api/plates'
+import { deletePlate } from '@/api'
 
 interface Props {
 	id: string

@@ -1,15 +1,15 @@
 import * as Accordion from '@radix-ui/react-accordion'
 
+import { CaretDown } from '@phosphor-icons/react'
 import 'react-loading-skeleton/dist/skeleton.css'
 import Skeleton from 'react-loading-skeleton'
 
 import { useQuery } from 'react-query'
 
-import { dateFns } from '../lib'
-import { getPlates } from '../api/plates'
-import { Plate } from '.'
-import { Plate as IPlate } from '../interfaces'
-import { CaretDown } from '@phosphor-icons/react'
+import { dateFns } from '@/lib'
+import { getPlates } from '@/api'
+import { Plate } from '@/components'
+import { Plate as IPlate } from '@/interfaces'
 
 // TODO: create stories
 export function Plates() {
