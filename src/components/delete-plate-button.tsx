@@ -1,6 +1,6 @@
 import * as Dialog from '@radix-ui/react-dialog'
 
-import { Trash } from '@phosphor-icons/react'
+import { CircleNotch, Trash } from '@phosphor-icons/react'
 
 import { useMutation, useQueryClient } from 'react-query'
 
@@ -11,25 +11,20 @@ interface Props {
 }
 
 // TODO: create stories
+// animate delete with framer motion
 export function DeletePlateButton({ id }: Props) {
 	const queryClient = useQueryClient()
 
-	const deletePlateMutation = useMutation(deletePlate, {
+	const { isLoading, mutate } = useMutation(deletePlate, {
 		onSuccess: () => {
 			queryClient.invalidateQueries('getPlates')
-
-			// TODO: use toast here
-		},
-		onError: () => {
-			// TODO: use toast here
 		}
 	})
 
 	async function handleDeletePlate() {
-		deletePlateMutation.mutate(id)
+		mutate(id)
 	}
 
-	// TODO: loading btn as the plate is deleted
 	return (
 		<Dialog.Root>
 			<Dialog.Trigger className='max-w-80 w-full py-4 px-6 gap-3 flex justify-center items-center rounded-md border-[1px] border-gray-100 text-sm text-gray-100 hover:bg-gray-600'>
@@ -51,9 +46,13 @@ export function DeletePlateButton({ id }: Props) {
 							Cancelar
 						</Dialog.Close>
 
-						<Dialog.Close onClick={handleDeletePlate} className='py-4 px-6 gap-3 flex justify-center items-center rounded-md border-[1px] border-gray-100 text-sm text-white bg-gray-100 hover:bg-gray-300'>
-							Sim, excluir
-						</Dialog.Close>
+						<button disabled={isLoading} onClick={handleDeletePlate} className='py-4 px-6 gap-3 flex justify-center items-center rounded-md border-[1px] border-gray-100 text-sm text-white bg-gray-100 hover:bg-gray-300 disabled:bg-gray-300 disabled:cursor-not-allowed'>
+							{isLoading ? (
+								<CircleNotch size={18} className='animate-spin' />
+							) :
+								'Sim, excluir'
+							}
+						</button>
 					</div>
 				</Dialog.Content>
 			</Dialog.Portal>

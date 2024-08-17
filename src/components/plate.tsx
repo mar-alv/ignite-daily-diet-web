@@ -6,8 +6,7 @@ import { memo } from 'react'
 
 import { dateFns } from '../lib'
 import { Plate as IPlate } from '../interfaces'
-import { DeletePlateButton } from './delete-plate-button'
-import { UpdatePlateButton } from './update-plate-button'
+import { DeletePlateButton, UpdatePlateButton } from '.'
 
 interface Props {
 	plate: IPlate

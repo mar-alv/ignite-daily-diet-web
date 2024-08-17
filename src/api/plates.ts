@@ -1,6 +1,13 @@
 import { api } from '../lib'
-import { CreatePlateBody, CreatePlateResponse, GetPlatesResponse, UpdatePlateBody, UpdatePlateResponse } from '../interfaces'
+import {
+	CreatePlateBody,
+	CreatePlateResponse,
+	GetPlatesResponse,
+	UpdatePlateBody,
+	UpdatePlateResponse
+} from '../interfaces'
 import { env } from '../env'
+import { toastify } from '../lib/toastify'
 
 export async function createPlate(plate: CreatePlateBody): Promise<CreatePlateResponse> {
 	try {
@@ -41,9 +48,9 @@ export async function updatePlate(plate: UpdatePlateBody): Promise<UpdatePlateRe
 export async function deletePlate(id: string) {
 	try {
 		await api.delete(`/${env.VITE_USER_ID}/plates/${id}`)
-	} catch (e) {
-		// TODO: Treat erros with a toast
 
-		return null
+		toastify.successToast('Refeição excluída com sucesso!')
+	} catch (e) {
+		toastify.errorToast('Não foi possível excluir a refeição!')
 	}
 }

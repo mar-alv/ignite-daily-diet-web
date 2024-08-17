@@ -34,12 +34,10 @@ export function Plates() {
 								/>
 							</Accordion.Trigger>
 						</Accordion.Header>
-						<Accordion.Content>
-							<div className='mt-[14px] gap-2 grid'>
-								{plates[date].map((plate: IPlate) =>
-									<Plate key={plate.id} plate={plate} />
-								)}
-							</div>
+						<Accordion.Content className='mt-[14px] gap-2 grid'>
+							{plates[date].map((plate: IPlate) =>
+								<Plate key={plate.id} plate={plate} />
+							)}
 						</Accordion.Content>
 					</Accordion.Item>
 				</Accordion.Root>

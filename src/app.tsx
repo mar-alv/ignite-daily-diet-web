@@ -1,5 +1,6 @@
-
 import { Suspense } from 'react'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 import {
 	CreatePlate,
@@ -15,7 +16,7 @@ export function App() {
 		<div className='p-6'>
 			<Header />
 
-			<div className='grid gap-10'>
+			<main className='grid gap-10'>
 				<Suspense fallback={<DietPercentageSkeleton />}>
 					<DietPercentage />
 				</Suspense>
@@ -25,7 +26,9 @@ export function App() {
 				<Suspense fallback={<PlatesSkeleton />}>
 					<Plates />
 				</Suspense>
-			</div>
+
+				<ToastContainer position='bottom-right' />
+			</main>
 		</div>
 	)
 }
