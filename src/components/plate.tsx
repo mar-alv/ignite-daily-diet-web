@@ -4,7 +4,7 @@ import * as Accordion from '@radix-ui/react-accordion'
 
 import { memo } from 'react'
 
-import { dateFns } from '@/lib'
+import { dayjs } from '@/lib'
 import { Plate as IPlate } from '@/interfaces'
 import { DeletePlateButton, UpdatePlateButton } from '@/components'
 
@@ -25,7 +25,7 @@ export const Plate = memo(({ plate }: Props) => {
 						<div className='py-[14px] px-4 flex justify-between items-center border-[1px] border-gray-500 rounded-md cursor-pointer'>
 							<div className='gap-[10px] flex justify-between items-center'>
 								<span>
-									{dateFns.getHoursAndMinutes(updatedAt)}
+									{dayjs.getHoursAndMinutes(updatedAt)}
 								</span>
 
 								<hr className='w-[1px] h-[14px] bg-gray-400' />
@@ -65,7 +65,7 @@ export const Plate = memo(({ plate }: Props) => {
 							</h3>
 
 							<p className='text-base text-gray-200'>
-								{dateFns.toFormattedCreatedAt(createdAt)}
+								{dayjs.toFormattedCreatedAt(createdAt)}
 							</p>
 						</div>
 

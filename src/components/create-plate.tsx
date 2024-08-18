@@ -6,17 +6,21 @@ import * as Form from '@radix-ui/react-form'
 import * as RadioGroup from '@radix-ui/react-radio-group'
 
 import { Controller, useForm } from 'react-hook-form'
-import { useMutation } from 'react-query'
+import { useMutation, useQueryClient } from 'react-query'
 import { useState } from 'react'
 import { z } from 'zod'
 
 import { createPlate } from '@/api'
+import { dayjs } from '@/lib'
 import { PlateCreatedModal } from '@/components'
+import { DatePicker } from './ui/date-picker'
 
 const createPlateSchema = z.object({
-	name: z.string().min(2),
-	description: z.string().optional(),
-	inDiet: z.string()
+  name: z.string().min(2),
+  description: z.string().optional(),
+  inDiet: z.string(),
+  createdAtDate: z.date().optional(),
+  createdAtHour: z.string().regex(/^(?:[01]\d|2[0-3]):[0-5]\d$/).optional()
 })
 
 type CreatePlateSchema = z.infer<typeof createPlateSchema>
@@ -25,9 +29,13 @@ export function CreatePlate() {
 	const [showCreatedModal, setShowCreatedModal] = useState(false)
 	const [stayedInDiet, setStayedInDiet] = useState(false)
 
+	const queryClient = useQueryClient()
+
 	const { isLoading, mutate } = useMutation(createPlate, {
 		onSuccess: () => {
+			reset()
 			setShowCreatedModal(true)
+			queryClient.invalidateQueries('getPlates')
 		}
 	})
 
@@ -58,10 +66,10 @@ export function CreatePlate() {
 		mutate({
 			name: data.name,
 			description: data.description,
-			inDiet: data.inDiet === 'true'
+			inDiet: data.inDiet === 'true',
+			createdAt: dayjs.getCreatedAtDate(data.createdAtHour, data.createdAtDate)
 		})
 
-		reset()
 		setStayedInDiet(data.inDiet === 'true')
 	}
 
@@ -138,7 +146,38 @@ export function CreatePlate() {
 									</Form.Control>
 								</Form.Field>
 
-								{/* TODO: add date and hour picker */}
+								<div className='gap-5 grid grid-cols-2'>
+									<Form.Field name='createdAtDate' className='grid gap-2'>
+										<Form.Label className='text-sm font-bold text-gray-200'>
+											Data
+										</Form.Label>
+
+										<Controller
+											name='createdAtDate'
+											control={control}
+											render={({ field }) => (
+												<DatePicker value={field.value} onChange={field.onChange} />
+											)}
+										/>
+									</Form.Field>
+
+									<Form.Field name='createdAtHour' className='grid gap-2'>
+										<Form.Label className='text-sm font-bold text-gray-200'>Hora</Form.Label>
+
+										<Controller
+											name='createdAtHour'
+											control={control}
+											render={({ field }) => (
+												<input
+													type='time'
+													value={field.value}
+													onChange={(e) => field.onChange(e.target.value)}
+													className='p-[14px] text-gray-100 border-[1px] border-gray-500 rounded-md outline-none text-base placeholder:text-gray-400 focus:border-gray-300'
+												/>
+											)}
+										/>
+									</Form.Field>
+								</div>
 
 								<div>
 									<p className='text-sm font-bold text-gray-200'>
