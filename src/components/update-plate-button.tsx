@@ -10,8 +10,10 @@ import { Controller, useForm } from 'react-hook-form'
 import { useMutation, useQueryClient } from 'react-query'
 import { z } from 'zod'
 
-import { updatePlate } from '@/api'
+import { DatePicker } from './ui/date-picker'
+import { dayjs } from '@/lib'
 import { Plate } from '@/interfaces'
+import { updatePlate } from '@/api'
 
 interface Props {
 	plate: Plate
@@ -20,7 +22,9 @@ interface Props {
 const updatePlateSchema = z.object({
 	name: z.string().min(2),
 	description: z.string().optional(),
-	inDiet: z.string()
+	inDiet: z.string(),
+	createdAtDate: z.date().optional(),
+  createdAtHour: z.string().regex(/^(?:[01]\d|2[0-3]):[0-5]\d$/).optional()
 })
 
 type UpdatePlateSchema = z.infer<typeof updatePlateSchema>
@@ -63,7 +67,8 @@ export function UpdatePlateButton({ plate }: Props) {
 			id: plate.id,
 			name: data.name,
 			description: data.description,
-			inDiet: data.inDiet === 'true'
+			inDiet: data.inDiet === 'true',
+			createdAt: dayjs.getCreatedAtDate(data.createdAtHour, data.createdAtDate)
 		})
 	}
 
@@ -129,7 +134,31 @@ export function UpdatePlateButton({ plate }: Props) {
 							</Form.Control>
 						</Form.Field>
 
-						{/* TODO: add date and hour picker */}
+						<div className='gap-5 grid grid-cols-2'>
+							<Form.Field name='createdAtDate' className='grid gap-2'>
+								<Form.Label className='text-sm font-bold text-gray-200'>
+									Data
+								</Form.Label>
+
+								<Controller
+									name='createdAtDate'
+									control={control}
+									render={({ field }) => (
+										<DatePicker value={field.value} onChange={field.onChange} />
+									)}
+								/>
+							</Form.Field>
+
+							<Form.Field name='createdAtHour' className='grid gap-2'>
+								<Form.Label className='text-sm font-bold text-gray-200'>Hora</Form.Label>
+
+								<Form.Control
+									type='time'
+									className='p-[14px] text-gray-100 border-[1px] border-gray-500 rounded-md outline-none text-base placeholder:text-gray-400 focus:border-gray-300'
+									{...register('createdAtHour')}
+								/>
+							</Form.Field>
+						</div>
 
 						<div>
 							<p className='text-sm font-bold text-gray-200'>

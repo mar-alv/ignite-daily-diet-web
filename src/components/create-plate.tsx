@@ -164,17 +164,10 @@ export function CreatePlate() {
 									<Form.Field name='createdAtHour' className='grid gap-2'>
 										<Form.Label className='text-sm font-bold text-gray-200'>Hora</Form.Label>
 
-										<Controller
-											name='createdAtHour'
-											control={control}
-											render={({ field }) => (
-												<input
-													type='time'
-													value={field.value}
-													onChange={(e) => field.onChange(e.target.value)}
-													className='p-[14px] text-gray-100 border-[1px] border-gray-500 rounded-md outline-none text-base placeholder:text-gray-400 focus:border-gray-300'
-												/>
-											)}
+										<Form.Control
+											type='time'
+											className='p-[14px] text-gray-100 border-[1px] border-gray-500 rounded-md outline-none text-base placeholder:text-gray-400 focus:border-gray-300'
+											{...register('createdAtHour')}
 										/>
 									</Form.Field>
 								</div>
