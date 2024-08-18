@@ -12,5 +12,4 @@ export interface Plate {
   description: string
   inDiet: boolean
   createdAt: string
-  updatedAt: string
 }

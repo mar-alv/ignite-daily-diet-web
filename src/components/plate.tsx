@@ -14,7 +14,7 @@ interface Props {
 
 // TODO: create stories
 export const Plate = memo(({ plate }: Props) => {
-	const { createdAt, description, id, inDiet, name, updatedAt } = plate
+	const { createdAt, description, id, inDiet, name } = plate
 
 	// TODO: loading btn as the plate is deleted
 	return (
@@ -25,7 +25,7 @@ export const Plate = memo(({ plate }: Props) => {
 						<div className='py-[14px] px-4 flex justify-between items-center border-[1px] border-gray-500 rounded-md cursor-pointer'>
 							<div className='gap-[10px] flex justify-between items-center'>
 								<span>
-									{dayjs.getHoursAndMinutes(updatedAt)}
+									{dayjs.getHoursAndMinutes(createdAt)}
 								</span>
 
 								<hr className='w-[1px] h-[14px] bg-gray-400' />

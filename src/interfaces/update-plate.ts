@@ -3,6 +3,7 @@ export interface UpdatePlateBody {
 	name: string
 	description?: string
 	inDiet: boolean
+	createdAt: string
 }
 
 export interface UpdatePlateResponse {
