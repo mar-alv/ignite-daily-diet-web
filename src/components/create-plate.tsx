@@ -82,12 +82,12 @@ export function CreatePlate() {
 
 	return (
 		<Dialog.Root onOpenChange={handleModalOpenChange}>
-			<section>
+			<section className='grid'>
 				<h2 className='text-gray-100'>
 					Refeições
 				</h2>
 
-				<Dialog.Trigger className='w-full mt-2 py-4 px-6 gap-3 flex justify-center rounded-md text-white bg-gray-200 hover:bg-gray-300'>
+				<Dialog.Trigger className='max-w-80 w-full mt-2 py-4 px-6 gap-3 flex justify-center justify-self-center rounded-md text-white bg-gray-200 hover:bg-gray-300'>
 					<Plus className='size-[18px]' />
 
 					<span className='text-sm font-bold'>

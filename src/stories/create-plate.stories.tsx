@@ -1,16 +1,25 @@
 import { delay, http, HttpResponse } from 'msw'
 import type { Meta, StoryObj } from '@storybook/react'
+import { QueryClient, QueryClientProvider } from 'react-query'
 
 import { CreatePlate } from '@/components'
 
-const meta = {
+const queryClient = new QueryClient()
+
+// TODO: atualizar url do back dos mocks
+// TODO: imgs estáticas não estão carregando
+const meta: Meta<typeof CreatePlate> = {
   title: 'components/create plate',
   component: CreatePlate,
   tags: ['autodocs'],
-  parameters: {
-    layout: 'fullscreen'
-  }
-} satisfies Meta<typeof CreatePlate>
+  decorators: [
+    (Story) => (
+      <QueryClientProvider client={queryClient}>
+        <Story />
+      </QueryClientProvider>
+    )
+  ]
+}
 
 export default meta
 

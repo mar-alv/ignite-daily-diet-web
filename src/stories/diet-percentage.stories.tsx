@@ -19,7 +19,7 @@ const meta: Meta<typeof DietPercentage> = {
           <Story />
         </Suspense>
       </QueryClientProvider>
-    ),
+    )
   ]
 }
 
@@ -56,7 +56,7 @@ export const outOfDiet: Story = {
 
 					return HttpResponse.json({
 						bestDietSequence: 1,
-						dietPercentage: 49,
+						dietPercentage: 50,
 						platesAmount: 2,
 						platesOnDiet: 1,
 						platesOutOfDiet: 1
