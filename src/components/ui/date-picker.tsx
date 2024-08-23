@@ -1,4 +1,4 @@
-import { format } from 'date-fns'
+import dayjs from 'dayjs'
 
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
@@ -25,7 +25,7 @@ export function DatePicker({ value, onChange }: Props) {
             !value && 'text-gray-400'
           )}
         >
-          {value ? format(value, 'dd/MM/yy') : <span>12/08/2022</span>}
+          {value ? dayjs(value).format('DD/MM/YY') : <span>12/08/2022</span>}
         </Button>
       </PopoverTrigger>
       <PopoverContent className='w-auto p-0 bg-gray-700'>
