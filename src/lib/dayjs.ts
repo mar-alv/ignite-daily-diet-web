@@ -20,7 +20,7 @@ export const dayjs = {
 	getCreatedAtDate(createdAtHour?: string, createdAtDate?: Date) {
 		const timeZone = 'America/Sao_Paulo'
 
-		const now = dayJs().tz(timeZone);
+		const now = dayJs().tz(timeZone)
 		const todayDate = now.format('YYYY-MM-DD')
 		const currentHour = now.format('HH:mm')
 
