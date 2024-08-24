@@ -1,7 +1,8 @@
 import { z } from 'zod'
 
 const envSchema = z.object({
-	VITE_API_BASE_URL: z.string().url().default('http://localhost:3001/users'),
+	MODE: z.enum(['production', 'development', 'test']).default('production'),
+	VITE_API_BASE_URL: z.string().default('http://localhost:3001/users'),
 	VITE_COOKIE: z.string(),
 	VITE_USER_ID: z.string().uuid()
 })
