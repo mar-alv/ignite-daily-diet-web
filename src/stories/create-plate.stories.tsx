@@ -7,7 +7,6 @@ import { env } from '@/env'
 
 const queryClient = new QueryClient()
 
-// TODO: imgs estáticas não estão carregando
 const meta: Meta<typeof CreatePlate> = {
   title: 'components/create plate',
   component: CreatePlate,
