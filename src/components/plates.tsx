@@ -12,9 +12,13 @@ import { Plate } from '@/components'
 import { Plate as IPlate } from '@/interfaces'
 
 export function Plates() {
-	const { data } = useQuery('getPlates', getPlates, { suspense: true })
+	const { data } = useQuery('getPlates', getPlates, {
+		cacheTime: Infinity,
+		staleTime: Infinity,
+		suspense: true
+	})
 
-	if (!data) return
+	if (!data) return <PlatesSkeleton />
 
 	const { plates } = data
 

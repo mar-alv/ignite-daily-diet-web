@@ -8,9 +8,13 @@ import { useQuery } from 'react-query'
 import { getMetrics } from '@/api'
 
 export function DietPercentage() {
-	const { data } = useQuery('getMetrics', getMetrics, { suspense: true })
+	const { data } = useQuery('getMetrics', getMetrics, {
+		cacheTime: Infinity,
+		staleTime: Infinity,
+		suspense: true
+	})
 
-	if (!data) return
+	if (!data) return <DietPercentageSkeleton />
 
 	const { bestDietSequence, dietPercentage, platesAmount, platesOnDiet, platesOutOfDiet } = data
 
