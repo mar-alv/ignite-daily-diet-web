@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import { Suspense } from 'react'
 
 import { DietPercentage, DietPercentageSkeleton } from '@/components'
+import { env } from '@/env'
 
 const queryClient = new QueryClient()
 
@@ -31,7 +32,7 @@ export const InDiet: Story = {
 	parameters: {
 		msw: {
 			handlers: [
-				http.get('http://localhost:3001/users/:userId/metrics', async () => {
+				http.get(`${env.VITE_API_BASE_URL}/:userId/metrics`, async () => {
 					await delay(2000)
 
 					return HttpResponse.json({
@@ -51,7 +52,7 @@ export const outOfDiet: Story = {
 	parameters: {
 		msw: {
 			handlers: [
-				http.get('http://localhost:3001/users/:userId/metrics', async () => {
+				http.get(`${env.VITE_API_BASE_URL}/:userId/metrics`, async () => {
 				  await new Promise((resolve) => setTimeout(resolve, 2000))
 
 					return HttpResponse.json({

@@ -12,11 +12,9 @@ interface Props {
 	plate: IPlate
 }
 
-// TODO: create stories
 export const Plate = memo(({ plate }: Props) => {
 	const { createdAt, description, id, inDiet, name } = plate
 
-	// TODO: loading btn as the plate is deleted
 	return (
 		<Accordion.Root collapsible type='single'>
 			<Accordion.Item value={id} className='group'>

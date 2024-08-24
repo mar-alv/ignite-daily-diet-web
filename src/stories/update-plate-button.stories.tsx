@@ -3,11 +3,11 @@ import { Meta, StoryObj } from '@storybook/react'
 
 import { QueryClient, QueryClientProvider } from 'react-query'
 
+import { env } from '@/env'
 import { UpdatePlateButton } from '@/components'
 
 const queryClient = new QueryClient()
 
-// TODO: update storybook and see if it is on watch mode
 const meta: Meta<typeof UpdatePlateButton> = {
   title: 'components/update plate button',
   component: UpdatePlateButton,
@@ -38,7 +38,7 @@ export const inDiet: Story = {
 	parameters: {
 		msw: {
 			handlers: [
-				http.put('http://localhost:3001/users/:userId/plates/:plateId', async () => {
+				http.put(`${env.VITE_API_BASE_URL}/:userId/plates/:plateId`, async () => {
 					await delay(2000)
 
 					return HttpResponse.json()
@@ -61,7 +61,7 @@ export const outOfDiet: Story = {
 	parameters: {
 		msw: {
 			handlers: [
-				http.put('http://localhost:3001/users/:userId/plates/:plateId', async () => {
+				http.put(`${env.VITE_API_BASE_URL}/:userId/plates/:plateId`, async () => {
 					await delay(2000)
 
 					return HttpResponse.json()

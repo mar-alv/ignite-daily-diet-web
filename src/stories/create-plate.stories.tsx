@@ -3,10 +3,10 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 
 import { CreatePlate } from '@/components'
+import { env } from '@/env'
 
 const queryClient = new QueryClient()
 
-// TODO: atualizar url do back dos mocks
 // TODO: imgs estáticas não estão carregando
 const meta: Meta<typeof CreatePlate> = {
   title: 'components/create plate',
@@ -29,7 +29,7 @@ export const Primary: Story = {
 	parameters: {
 		msw: {
 			handlers: [
-				http.post('http://localhost:3001/users/:userId/plates', async () => {
+				http.post(`${env.VITE_API_BASE_URL}/:userId/plates`, async () => {
 					await delay(2000)
 
 					return HttpResponse.json({

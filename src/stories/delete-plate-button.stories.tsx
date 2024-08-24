@@ -4,6 +4,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 
 import { DeletePlateButton } from '@/components'
+import { env } from '@/env'
 
 const queryClient = new QueryClient()
 
@@ -28,7 +29,7 @@ export const Primary: Story = {
 	parameters: {
 		msw: {
 			handlers: [
-				http.delete('http://localhost:3001/users/:userId/plates/:plateId', async () => {
+				http.delete(`${env.VITE_API_BASE_URL}/:userId/plates/:plateId`, async () => {
 					await delay(2000)
 
 					return HttpResponse.json()

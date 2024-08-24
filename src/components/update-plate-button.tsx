@@ -29,7 +29,6 @@ const updatePlateSchema = z.object({
 
 type UpdatePlateSchema = z.infer<typeof updatePlateSchema>
 
-// TODO: create stories
 export function UpdatePlateButton({ plate }: Props) {
 	const queryClient = useQueryClient()
 

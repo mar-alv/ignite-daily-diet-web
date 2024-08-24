@@ -4,6 +4,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { Suspense } from 'react'
 
+import { env } from '@/env'
 import { Plates, PlatesSkeleton } from '@/components'
 
 const queryClient = new QueryClient()
@@ -31,7 +32,7 @@ export const OneDate: Story = {
 	parameters: {
 		msw: {
 			handlers: [
-				http.get('http://localhost:3001/users/:userId/plates', async () => {
+				http.get(`${env.VITE_API_BASE_URL}/:userId/plates`, async () => {
 					await delay(2000)
 
 					return HttpResponse.json({
@@ -49,12 +50,12 @@ export const OneDate: Story = {
 						}
 					})
 				}),
-				http.put('http://localhost:3001/users/:userId/plates/:plateId', async () => {
+				http.put(`${env.VITE_API_BASE_URL}/:userId/plates/:plateId`, async () => {
 					await delay(2000)
 
 					return HttpResponse.json()
 				}),
-				http.delete('http://localhost:3001/users/:userId/plates/:plateId', async () => {
+				http.delete(`${env.VITE_API_BASE_URL}/:userId/plates/:plateId`, async () => {
 					await delay(2000)
 
 					return HttpResponse.json()
@@ -68,7 +69,7 @@ export const TwoDates: Story = {
 	parameters: {
 		msw: {
 			handlers: [
-				http.get('http://localhost:3001/users/:userId/plates', async () => {
+				http.get(`${env.VITE_API_BASE_URL}/:userId/plates`, async () => {
 					await delay(2000)
 
 					return HttpResponse.json({
@@ -96,12 +97,12 @@ export const TwoDates: Story = {
 						}
 					})
 				}),
-				http.put('http://localhost:3001/users/:userId/plates/:plateId', async () => {
+				http.put(`${env.VITE_API_BASE_URL}/:userId/plates/:plateId`, async () => {
 					await delay(2000)
 
 					return HttpResponse.json()
 				}),
-				http.delete('http://localhost:3001/users/:userId/plates/:plateId', async () => {
+				http.delete(`${env.VITE_API_BASE_URL}/:userId/plates/:plateId`, async () => {
 					await delay(2000)
 
 					return HttpResponse.json()

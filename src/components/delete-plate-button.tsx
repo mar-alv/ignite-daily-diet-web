@@ -10,8 +10,6 @@ interface Props {
 	id: string
 }
 
-// TODO: create stories
-// animate delete with framer motion
 export function DeletePlateButton({ id }: Props) {
 	const queryClient = useQueryClient()
 

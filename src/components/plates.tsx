@@ -11,7 +11,6 @@ import { getPlates } from '@/api'
 import { Plate } from '@/components'
 import { Plate as IPlate } from '@/interfaces'
 
-// TODO: create stories
 export function Plates() {
 	const { data } = useQuery('getPlates', getPlates, { suspense: true })
 
