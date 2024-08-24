@@ -1,4 +1,4 @@
-import { api } from '@/lib'
+import { api, toastify } from '@/lib'
 import { env } from '@/env'
 import { Metrics } from '@/interfaces'
 
@@ -8,7 +8,7 @@ export async function getMetrics(): Promise<Metrics | null> {
 
 		return response.data
 	} catch (e) {
-		// TODO: Treat erros with a toast
+		toastify.errorToast('Não foi possível carregar as suas métricas!')
 
 		return null
 	}
