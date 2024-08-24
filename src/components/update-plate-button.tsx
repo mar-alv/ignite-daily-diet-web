@@ -190,6 +190,7 @@ export function UpdatePlateButton({ plate }: Props) {
 										</RadioGroup.Item>
 
 										<RadioGroup.Item
+											data-testid='out-of-diet-radio'
 											value='false'
 											className={clsx('p-4 gap-2 flex justify-center items-center rounded-md cursor-pointer',
 												field.value === 'false' ? 'bg-red-light outline outline-1 outline-red-dark outline-offset-0' : 'bg-gray-600'

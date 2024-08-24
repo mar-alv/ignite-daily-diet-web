@@ -165,6 +165,7 @@ export function CreatePlate() {
 										<Form.Label className='text-sm font-bold text-gray-200'>Hora</Form.Label>
 
 										<Form.Control
+											data-testid='hour-input'
 											type='time'
 											className='p-[14px] text-gray-100 border-[1px] border-gray-500 rounded-md outline-none text-base placeholder:text-gray-400 focus:border-gray-300'
 											{...register('createdAtHour')}
@@ -189,6 +190,7 @@ export function CreatePlate() {
 												className='mt-2 gap-2 grid grid-cols-2'
 											>
 												<RadioGroup.Item
+													data-testid='on-diet-radio'
 													value='true'
 													className={clsx('p-4 gap-2 flex justify-center items-center rounded-md cursor-pointer',
 														field.value === 'true' ? 'bg-green-light outline outline-1 outline-green-dark outline-offset-0' : 'bg-gray-600'
@@ -197,12 +199,12 @@ export function CreatePlate() {
 													<div className='size-2 rounded-full bg-green-dark' />
 
 													<label className='text-sm font-bold text-gray-200'>
-
 														Sim
 													</label>
 												</RadioGroup.Item>
 
 												<RadioGroup.Item
+													data-testid='out-of-diet-radio'
 													value='false'
 													className={clsx('p-4 gap-2 flex justify-center items-center rounded-md cursor-pointer',
 														field.value === 'false' ? 'bg-red-light outline outline-1 outline-red-dark outline-offset-0' : 'bg-gray-600'
@@ -211,7 +213,6 @@ export function CreatePlate() {
 													<div className='size-2 rounded-full bg-red-dark' />
 
 													<label className='text-sm font-bold text-gray-200'>
-
 														Não
 													</label>
 												</RadioGroup.Item>

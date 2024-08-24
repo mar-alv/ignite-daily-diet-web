@@ -19,6 +19,7 @@ export function DatePicker({ value, onChange }: Props) {
     <Popover>
       <PopoverTrigger asChild>
         <Button
+					data-testid='date-picker'
           variant={'outline'}
           className={cn(
             'p-[14px] justify-start text-left text-base font-normal',

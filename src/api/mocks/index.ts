@@ -2,7 +2,22 @@ import { setupWorker } from 'msw/browser'
 
 import { env } from '@/env'
 
-export const worker = setupWorker()
+import { getMetricsMock } from './users'
+import {
+	createPlateMock,
+	deletePlateMock,
+	getPlatesMock,
+	updatePlateMock
+} from './plates'
+
+export const worker = setupWorker(
+	getMetricsMock,
+
+	createPlateMock,
+	deletePlateMock,
+	getPlatesMock,
+	updatePlateMock
+)
 
 export async function enableMsw() {
 	if (env.MODE !== 'test') return
