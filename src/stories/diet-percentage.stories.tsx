@@ -56,10 +56,10 @@ export const outOfDiet: Story = {
 				  await new Promise((resolve) => setTimeout(resolve, 2000))
 
 					return HttpResponse.json({
-						bestDietSequence: 1,
-						dietPercentage: 50,
-						platesAmount: 2,
-						platesOnDiet: 1,
+						bestDietSequence: 0,
+						dietPercentage: 0,
+						platesAmount: 1,
+						platesOnDiet: 0,
 						platesOutOfDiet: 1
 					})
 				})

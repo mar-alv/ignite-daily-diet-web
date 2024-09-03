@@ -8,33 +8,33 @@
 
   [🎨 Mobile Design](https://www.figma.com/design/0507XcCgEpjZwM5UKuFmg5/Daily-Diet-%E2%80%A2-Desafio-React-Native-(Community)?node-id=2-12&t=UiGTDLfY7wSTv3rj-0)
 
-  [🇵🇹 Português](./docs/README-pt.md)
+  [⬅️ Voltar](../README.md)
 
 </div>
 
-## 📚 Summary
-- [❕ About](#about)
-- [📖 Instructions](#instructions)
-  - [📥 Install](#install)
-  - [🚀 Run Locally](#locally)
-  - [📔 Run Storybook](#storybook)
-- [📂 Structure](#structure)
-- [🧰 Technologies](#technologies)
-- [📸 Screenshots and 🎥 Recordings](#screenshots-prints)
-- [👤 Author](#author)
-- [📄 License](#license)
+## 📚 Sumário
+- [❕ Sobre](#about)
+- [📖 Instruções](#instructions)
+  - [📥 Instalar](#install)
+  - [🚀 Rodar Localmente](#locally)
+  - [📔 Rodar Storybook](#storybook)
+- [📂 Estrutura](#structure)
+- [🧰 Tecnologias](#technologies)
+- [📸 Prints e 🎥 Gravações](#screenshots-prints)
+- [👤 Autor](#author)
+- [📄 Licença](#license)
 
-### <a id='about' style='text-decoration: none; color: inherit;'>❕ About</a>
-A web implementation of the NodeJs and React Native challenge of Ignite, Rocketseat's programming course, made to use the API created in the NodeJs modeule, where you can handle your diet, by creating, listing, visualizing, editing your diets, besides retrieving metrics of them 
+### <a id='about' style='text-decoration: none; color: inherit;'>❕ Sobre</a>
+Uma implementação web do desafio NodeJs e React Native do Ignite, curso de programação da Rocketseat, feito para usar a API criada no módulo NodeJs, onde você pode gerenciar sua dieta, criando, listando, visualizando e editando suas dietas, além de recuperar métricas delas.
 
-### <a id='instructions' style='text-decoration: none; color: inherit;'>📖 Instructions</a>
-#### <a id='en-instalar' style='text-decoration: none; color: inherit;'>📥 Install</a>
-Paste this 1º command into a terminal opened within a folder of your preference to clone the project
+### <a id='instructions' style='text-decoration: none; color: inherit;'>📖 Instruções</a>
+#### <a id='install' style='text-decoration: none; color: inherit;'>📥 Instalar</a>
+Cole o 1º comando em um terminal aberto dentro da pasta de sua preferência para clonar o projeto
 ```sh
 git clone https://github.com/mar-alv/ignite-daily-diet-web.git
 ```
 
-Then run one of the versions of the 2º command to install the dependencies
+Em seguida rode uma das versões do 2º comando para instalar as dependências
 ```sh
 pnpm i
 ```
@@ -42,25 +42,25 @@ pnpm i
 pnpm install
 ```
 
-#### <a id='locally' style='text-decoration: none; color: inherit;'>🚀 Run Locally</a>
-Paste the command into a terminal, the application will be accessable through this [link](http://localhost:5173)
+#### <a id='locally' style='text-decoration: none; color: inherit;'>🚀 Rodar Localmente</a>
+Cole o comando em um terminal, a aplicação estará acessível através desse [link](http://localhost:5173)
 ```sh
 pnpm run dev
 ```
 
-#### <a id='e2e-tests' style='text-decoration: none; color: inherit;'>🏁 Run End-To-End Tests</a>
-Paste the command into a terminal, the tests will be open in a browser tab automatically, controlling it like an actual user, clicking on buttons, interacting with forms, etc... The results will appear within the own interface
+##### <a id='e2e-tests' style='text-decoration: none; color: inherit;'>🏁 Rodar Testes End-To-End</a>
+Cole o comando num terminal, os testes serão abertos numa aba do navegador automaticamente, controlando ela como um usuário real, clicando em botões, interagindo com formulários, etc... Os resultados aparecerão na própria interface
 ```sh
 npm run tests-e2e
 ```
 
-#### <a id='storybook' style='text-decoration: none; color: inherit;'>📔 Run Storybook</a>
-Paste the command into a terminal, the project's components documentation will be accessible through this [link](http://localhost:6006)
+#### <a id='storybook' style='text-decoration: none; color: inherit;'>📔 Rodar Storybook</a>
+Cole o comando num terminal, a documentação dos componentes do projeto estará acessível através desse [link](http://localhost:6006)
 ```sh
 pnpm run storybook
 ```
 
-### <a id='structure' style='text-decoration: none; color: inherit;'>📂 Structure</a>
+### <a id='structure' style='text-decoration: none; color: inherit;'>📂 Estrutura</a>
 ```
 │ .github/
 │   └── ...
@@ -92,7 +92,7 @@ pnpm run storybook
 │   └── ...
 ```
 
-## <a id='technologies' style='text-decoration: none; color: inherit;'>🧰 Technologies</a>
+## <a id='technologies' style='text-decoration: none; color: inherit;'>🧰 Tecnologias</a>
 ### Build Tools
 [![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
 
@@ -126,102 +126,102 @@ pnpm run storybook
 [![React Hook Form](https://img.shields.io/badge/React_Hook_Form-FF6B6B?style=for-the-badge&logo=react&logoColor=white)](https://react-hook-form.com/)
 [![Zod](https://img.shields.io/badge/Zod-007ACC?style=for-the-badge&logo=superman&logoColor=white)](https://zod.dev/)
 
-## <a id='screenshots-prints' style='text-decoration: none; color: inherit;'>📸 Screenshots and 🎥 Recordings</a>
+## <a id='screenshots-prints' style='text-decoration: none; color: inherit;'>📸 Prints e 🎥 Gravações</a>
 <div align='center'>
 
-  ![colors-stories](./.github/colors-stories.png)
+  ![colors-stories](../.github/colors-stories.png)
 
-Colors stories
+  Stories das cores
 
 </div>
 
 <div align='center'>
 
-  ![icons-stories](./.github/icons-stories.png)
+  ![icons-stories](../.github/icons-stories.png)
 
-Icons stories
-
-</div>
-
-<div align='center'>
-
-  ![header-stories](./.github/header-stories.png)
-
-Header stories
+  Stories dos ícones
 
 </div>
 
 <div align='center'>
 
-  ![positive-metrics-stories](./.github/positive-metrics-stories.png)
+  ![header-stories](../.github/header-stories.png)
 
-  Positive metrics stories
-
-</div>
-
-<div align='center'>
-
-  ![negative-metrics-stories](./.github/negative-metrics-stories.png)
-
-  Negative metrics stories
+  Stories do cabeçalho
 
 </div>
 
 <div align='center'>
 
-  ![creating-plate-stories](./.github/creating-plate.gif)
+  ![positive-metrics-stories](../.github/positive-metrics-stories.png)
 
-  Creating plate stories
-
-</div>
-
-<div align='center'>
-
-  ![deleting-plate-stories](./.github/deleting-plate.gif)
-
-  Deleting plate stories
-
-</div>
-
-
-<div align='center'>
-
-  ![other-stories](./.github/other-stories.gif)
-
-  Other stories
+  Stories das métricas positivas
 
 </div>
 
 <div align='center'>
 
-  ![no-plates](./.github/no-plates.png)
+  ![negative-metrics-stories](../.github/negative-metrics-stories.png)
 
-  No plates
+  Stories das métricas negativas
 
 </div>
 
-## <a id='author' style='text-decoration: none; color: inherit;'>👤 Author</a>
+<div align='center'>
+
+  ![creating-plate-stories](../.github/creating-plate.gif)
+
+  Stories da criação de refeições
+
+</div>
+
+<div align='center'>
+
+  ![deleting-plate-stories](../.github/deleting-plate.gif)
+
+  Stories da remoção de refeições
+
+</div>
+
+
+<div align='center'>
+
+  ![other-stories](../.github/other-stories.gif)
+
+  Outros stories
+
+</div>
+
+<div align='center'>
+
+  ![no-plates](../.github/no-plates.png)
+
+  Sem refeições criadas
+
+</div>
+
+## <a id='author' style='text-decoration: none; color: inherit;'>👤 Autor</a>
 <div style='display: flex; align-items: center;'>
-    <img src='https://github.com/mar-alv.png' alt='Marcelo Alvarez GitHub profile picture' style='width: 150px; border-radius: 50%; margin-right: 20px;'>
-    <div>
-        <strong>Marcelo Alvarez</strong>
-        <br>
-        <em>Front-end Developer</em><br>
-        <span>"Some AI generated funny quote here 😗"</span><br>
+		<img src='https://github.com/mar-alv.png' alt='Marcelo Alvarez GitHub profile picture' style='width: 150px; border-radius: 50%; margin-right: 20px;'>
+		<div>
+				<strong>Marcelo Alvarez</strong>
+				<br>
+				<em>Front-end Developer</em><br>
+				<span>"Uma citação engraçada gerada por IA aqui 😗"</span><br>
 				<a href='https://www.linkedin.com/in/mar-alv'>
-  				<img
+					<img
 						alt='LinkedIn'
 						src='https://img.shields.io/badge/LinkedIn-Marcelo%20Alvarez-0077B5?logo=linkedin&logoColor=white'
 					/>
 				</a>
 				<a href='https://mar-alv.github.io/'>
-  				<img
+					<img
 						alt='Portfolio'
 						src='https://img.shields.io/badge/Portfolio-Marcelo%20Alvarez-000?style=flat&logo=portfolio&logoColor=white'
 					/>
 				</a>
-    </div>
+		</div>
 </div>
 
-## <a id='license' style='text-decoration: none; color: inherit;'>📄 License</a>
-Licensed under [MIT](./LICENSE)
+## <a id='license' style='text-decoration: none; color: inherit;'>📄 Licença</a>
+Licenciado via [MIT](./LICENSE)
