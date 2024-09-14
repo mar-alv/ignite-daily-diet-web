@@ -1,4 +1,4 @@
-import '../src/index.css'
+import '../src/global.css'
 
 import { initialize, mswLoader } from 'msw-storybook-addon'
 
