@@ -104,6 +104,7 @@ export function CreatePlate() {
 			}
 	}
 
+	// TODO: test removing most of the dialog content and form styles
 	return (
 		<Dialog onOpenChange={handleModalOpenChange}>
 			<section className='grid'>
@@ -111,8 +112,8 @@ export function CreatePlate() {
 					Refeições
 				</h2>
 
-				<DialogTrigger className='mt-2'>
-					<Button size='lg' className='gap-2'>
+				<DialogTrigger className='mt-2' asChild>
+					<Button size='lg' className='gap-2 justify-self-center'>
 						<Plus className='size-[18px]' />
 
 						<span className='text-sm font-bold'>
@@ -195,7 +196,7 @@ export function CreatePlate() {
 																	)}
 																>
 																	{field.value ? (
-																		dateFns.formatAsDayMonthYear(field.value)
+																		dateFns.formatAsDayMonthYearSeparatedByBars(field.value)
 																	) : (
 																		<span>Escolha uma data</span>
 																	)}
@@ -289,7 +290,7 @@ export function CreatePlate() {
 										)}
 									/>
 
-									<Button disabled={isLoading} size='lg'>
+									<Button disabled={isLoading} size='lg' type='submit'>
 										{isLoading ? (
 											<CircleNotch size={18} className='animate-spin' />
 										) :

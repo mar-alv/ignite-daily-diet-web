@@ -17,7 +17,7 @@ import { Plate } from '@/components/plate'
 
 import { Plate as IPlate } from '@/interfaces'
 
-import { dayjs } from '@/lib/dayjs'
+import { dateFns } from '@/lib/date-fns'
 
 export function Plates() {
 	const { data } = useQuery('getPlates', getPlates, {
@@ -37,7 +37,7 @@ export function Plates() {
 					<AccordionItem value={date}>
 						<AccordionTrigger className='w-full px-6 flex justify-between items-center group'>
 							<h4 className='text-lg text-gray-100'>
-								{dayjs.getDateAsDDMMYY(date)}
+								{dateFns.formatAsDayMonthYearSeparatedByDots(new Date(date))}
 							</h4>
 							<CaretDown
 								className='transition-transform duration-300 ease-in-out group-data-[state=open]:rotate-180'

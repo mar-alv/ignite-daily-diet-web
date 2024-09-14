@@ -1,7 +1,6 @@
-import * as Dialog from '@radix-ui/react-dialog'
-
 import { Meta, StoryObj } from '@storybook/react'
 
+import { Dialog, DialogPortal } from '@/components/ui/dialog'
 import { PlateCreatedModal } from '@/components/plate-created-modal'
 
 const meta: Meta<typeof PlateCreatedModal> = {
@@ -10,11 +9,11 @@ const meta: Meta<typeof PlateCreatedModal> = {
   tags: ['autodocs'],
   decorators: [
     (Story) => (
-			<Dialog.Root open>
-				<Dialog.Portal>
+			<Dialog open>
+				<DialogPortal>
 					<Story />
-				</Dialog.Portal>
-			</Dialog.Root>
+				</DialogPortal>
+			</Dialog>
     )
   ]
 }

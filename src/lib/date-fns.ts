@@ -2,8 +2,11 @@ import { format, set } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
 
 export const dateFns = {
-	formatAsDayMonthYear(value: Date) {
+	formatAsDayMonthYearSeparatedByBars(value: Date) {
 		return format(value, 'dd/MM/yyyy')
+	},
+	formatAsDayMonthYearSeparatedByDots(value: Date) {
+		return format(value, 'dd.MM.yyyy')
 	},
 	getCreatedAt(createdAtDate: Date, createdAtHour: string) {
 		const [hours, minutes] = createdAtHour.split(':').map(Number)

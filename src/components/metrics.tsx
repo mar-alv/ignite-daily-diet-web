@@ -7,7 +7,6 @@ import { useQuery } from 'react-query'
 
 import { getMetrics } from '@/api/users'
 
-// TODO: do this on update plate: queryClient.invalidateQueries('getMetrics')
 export function Metrics() {
 	const { data } = useQuery('getMetrics', getMetrics, {
 		cacheTime: Infinity,

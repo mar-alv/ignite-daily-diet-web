@@ -36,8 +36,8 @@ export function DeletePlateButton({ id }: Props) {
 
 	return (
 		<Dialog>
-			<DialogTrigger>
-				<Button size='lg' variant='outline'>
+			<DialogTrigger asChild>
+				<Button size='lg' variant='outline' className='max-w-80 gap-2 flex-1'>
 					<Trash size={18} />
 
 					Excluir refeição
