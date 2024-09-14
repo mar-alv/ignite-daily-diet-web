@@ -111,7 +111,7 @@ export function CreatePlate() {
 					Refeições
 				</h2>
 
-				<DialogTrigger>
+				<DialogTrigger className='mt-2'>
 					<Button size='lg' className='gap-2'>
 						<Plus className='size-[18px]' />
 

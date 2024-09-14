@@ -1,7 +1,5 @@
 import clsx from 'clsx'
 
-import * as Accordion from '@radix-ui/react-accordion'
-
 import { memo } from 'react'
 
 import { DeletePlateButton } from '@/components/delete-plate-button'
@@ -9,7 +7,14 @@ import { UpdatePlateButton } from '@/components/update-plate-button'
 
 import { Plate as IPlate } from '@/interfaces'
 
-import { dayjs } from '@/lib/dayjs'
+import {
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger
+} from '@/components/ui/accordion'
+
+import { dateFns } from '@/lib/date-fns'
 
 interface Props {
 	plate: IPlate
@@ -19,34 +24,30 @@ export const Plate = memo(({ plate }: Props) => {
 	const { createdAt, description, id, inDiet, name } = plate
 
 	return (
-		<Accordion.Root collapsible type='single'>
-			<Accordion.Item value={id} className='group'>
-				<Accordion.Header>
-					<Accordion.Trigger asChild>
-						<div className='py-[14px] px-4 flex justify-between items-center border-[1px] border-gray-500 rounded-md cursor-pointer'>
-							<div className='gap-[10px] flex justify-between items-center'>
-								<span>
-									{dayjs.getHoursAndMinutes(createdAt)}
-								</span>
+		<Accordion collapsible type='single'>
+			<AccordionItem value={id} className='group'>
+				<AccordionTrigger className='py-[14px] px-4 flex justify-between items-center border-[1px] border-gray-500 rounded-md cursor-pointer'>
+					<div className='gap-[10px] flex justify-between items-center'>
+						<span>
+							{dateFns.formatAsHours(createdAt)}
+						</span>
 
-								<hr className='w-[1px] h-[14px] bg-gray-400' />
+						<hr className='w-[1px] h-[14px] bg-gray-400' />
 
-								<h4 className='max-w-44 truncate'>
-									{name}
-								</h4>
-							</div>
+						<h4 className='max-w-44 truncate'>
+							{name}
+						</h4>
+					</div>
 
-							<div
-								className={clsx(
-									'size-[14px] rounded-full',
-									inDiet ? 'bg-green-mid' : 'bg-red-mid'
-								)}
-							/>
-						</div>
-					</Accordion.Trigger>
-				</Accordion.Header>
+					<div
+						className={clsx(
+							'size-[14px] rounded-full',
+							inDiet ? 'bg-green-mid' : 'bg-red-mid'
+						)}
+					/>
+				</AccordionTrigger>
 
-				<Accordion.Content className='gap-6 flex-1 flex flex-col justify-between group-data-[state=open]:p-4'>
+				<AccordionContent className='gap-6 flex-1 flex flex-col justify-between group-data-[state=open]:p-4'>
 					<div className='gap-6 grid'>
 						<div className='gap-2 grid'>
 							<h1 className='text-xl font-bold text-gray-100'>
@@ -66,7 +67,7 @@ export const Plate = memo(({ plate }: Props) => {
 							</h3>
 
 							<p className='text-base text-gray-200'>
-								{dayjs.toFormattedCreatedAt(createdAt)}
+								{dateFns.formatAsDateAndAtHours(createdAt)}
 							</p>
 						</div>
 
@@ -88,8 +89,8 @@ export const Plate = memo(({ plate }: Props) => {
 						<UpdatePlateButton plate={plate} />
 						<DeletePlateButton id={id} />
 					</div>
-				</Accordion.Content>
-			</Accordion.Item>
-		</Accordion.Root>
+				</AccordionContent>
+			</AccordionItem>
+		</Accordion>
 	)
 })

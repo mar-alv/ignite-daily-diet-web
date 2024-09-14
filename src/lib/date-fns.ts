@@ -1,4 +1,5 @@
 import { format, set } from 'date-fns'
+import { ptBR } from 'date-fns/locale'
 
 export const dateFns = {
 	formatAsDayMonthYear(value: Date) {
@@ -16,5 +17,17 @@ export const dateFns = {
 		const time = format(updatedDate, 'HH:mm:ss.SSS')
 
 		return `${date}T${time}Z`
+	},
+	formatAsHours(value: string) {
+		const date = new Date(value)
+
+		return format(date, 'HH:mm')
+	},
+	formatAsDateAndAtHours(value: string) {
+		const date = new Date(value)
+
+		return format(date, 'dd/MM/yyyy \'às\' HH:mm', {
+			locale: ptBR
+		})
 	}
 }
