@@ -48,14 +48,14 @@ export function DeletePlateButton({ id }: Props) {
 				<DialogOverlay />
 
 				<DialogContent aria-describedby={undefined} className='max-w-sm w-full p-6 gap-8 grid fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-s-2xl rounded-e-2xl bg-gray-700'>
-					<DialogHeader>
+					<DialogHeader className='items-center'>
 						<DialogTitle className='max-w-56 justify-self-center text-center text-lg font-bold text-gray-200'>
 							Deseja realmente excluir o registro da refeição?
 						</DialogTitle>
 					</DialogHeader>
 
 					<div className='gap-3 grid grid-cols-2 text-sm font-bold'>
-						<DialogClose>
+						<DialogClose asChild>
 							<Button size='lg' variant='outline'>
 								Cancelar
 							</Button>
