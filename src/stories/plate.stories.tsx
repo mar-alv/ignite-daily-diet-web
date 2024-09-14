@@ -1,10 +1,12 @@
 import { delay, http, HttpResponse } from 'msw'
+
 import { Meta, StoryObj } from '@storybook/react'
 
 import { QueryClient, QueryClientProvider } from 'react-query'
 
+import { Plate } from '@/components/plate'
+
 import { env } from '@/env'
-import { Plate } from '@/components'
 
 const queryClient = new QueryClient()
 

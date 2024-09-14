@@ -1,11 +1,13 @@
 import { delay, http, HttpResponse } from 'msw'
+
 import { Meta, StoryObj } from '@storybook/react'
 
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { Suspense } from 'react'
 
+import { Plates, PlatesSkeleton } from '@/components/plates'
+
 import { env } from '@/env'
-import { Plates, PlatesSkeleton } from '@/components'
 
 const queryClient = new QueryClient()
 

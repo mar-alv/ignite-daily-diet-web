@@ -1,4 +1,5 @@
-import { api } from '@/lib'
+import { env } from '@/env'
+
 import {
 	CreatePlateBody,
 	CreatePlateResponse,
@@ -6,8 +7,9 @@ import {
 	UpdatePlateBody,
 	UpdatePlateResponse
 } from '@/interfaces'
-import { env } from '@/env'
-import { toastify } from '@/lib'
+
+import { api } from '@/lib/axios'
+import { toastify } from '@/lib/toastify'
 
 export async function createPlate(plate: CreatePlateBody): Promise<CreatePlateResponse> {
 	try {

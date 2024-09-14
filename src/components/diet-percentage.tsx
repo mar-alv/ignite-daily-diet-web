@@ -5,7 +5,7 @@ import Skeleton from 'react-loading-skeleton'
 
 import { useQuery } from 'react-query'
 
-import { getMetrics } from '@/api'
+import { getMetrics } from '@/api/users'
 
 // TODO: Rename to metrics
 // TODO: do this on update and delete plate: queryClient.invalidateQueries('getMetrics')

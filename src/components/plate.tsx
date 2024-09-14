@@ -4,9 +4,12 @@ import * as Accordion from '@radix-ui/react-accordion'
 
 import { memo } from 'react'
 
-import { dayjs } from '@/lib'
+import { DeletePlateButton } from '@/components/delete-plate-button'
+import { UpdatePlateButton } from '@/components/update-plate-button'
+
 import { Plate as IPlate } from '@/interfaces'
-import { DeletePlateButton, UpdatePlateButton } from '@/components'
+
+import { dayjs } from '@/lib/dayjs'
 
 interface Props {
 	plate: IPlate

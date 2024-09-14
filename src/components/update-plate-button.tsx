@@ -10,10 +10,13 @@ import { Controller, useForm } from 'react-hook-form'
 import { useMutation, useQueryClient } from 'react-query'
 import { z } from 'zod'
 
-import { DatePicker } from './ui/date-picker'
-import { dayjs } from '@/lib'
+import { updatePlate } from '@/api/plates'
+
+import { DatePicker } from '@/components/ui/date-picker'
+
 import { Plate } from '@/interfaces'
-import { updatePlate } from '@/api'
+
+import { dayjs } from '@/lib/dayjs'
 
 interface Props {
 	plate: Plate

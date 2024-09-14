@@ -1,10 +1,12 @@
 import { delay, http, HttpResponse } from 'msw'
+
 import { Meta, StoryObj } from '@storybook/react'
 
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { Suspense } from 'react'
 
-import { DietPercentage, DietPercentageSkeleton } from '@/components'
+import { DietPercentage, DietPercentageSkeleton } from '@/components/diet-percentage'
+
 import { env } from '@/env'
 
 const queryClient = new QueryClient()

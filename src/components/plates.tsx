@@ -1,15 +1,19 @@
 import * as Accordion from '@radix-ui/react-accordion'
 
 import { CaretDown } from '@phosphor-icons/react'
+
 import 'react-loading-skeleton/dist/skeleton.css'
 import Skeleton from 'react-loading-skeleton'
 
 import { useQuery } from 'react-query'
 
-import { dayjs } from '@/lib'
-import { getPlates } from '@/api'
-import { Plate } from '@/components'
+import { getPlates } from '@/api/plates'
+
+import { Plate } from '@/components/plate'
+
 import { Plate as IPlate } from '@/interfaces'
+
+import { dayjs } from '@/lib/dayjs'
 
 export function Plates() {
 	const { data } = useQuery('getPlates', getPlates, {

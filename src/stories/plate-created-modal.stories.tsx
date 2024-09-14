@@ -2,7 +2,7 @@ import * as Dialog from '@radix-ui/react-dialog'
 
 import { Meta, StoryObj } from '@storybook/react'
 
-import { PlateCreatedModal } from '@/components'
+import { PlateCreatedModal } from '@/components/plate-created-modal'
 
 const meta: Meta<typeof PlateCreatedModal> = {
   title: 'components/plate created modal',

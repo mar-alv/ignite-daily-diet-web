@@ -1,9 +1,11 @@
 import { delay, http, HttpResponse } from 'msw'
+
 import { Meta, StoryObj } from '@storybook/react'
 
 import { QueryClient, QueryClientProvider } from 'react-query'
 
-import { DeletePlateButton } from '@/components'
+import { DeletePlateButton } from '@/components/delete-plate-button'
+
 import { env } from '@/env'
 
 const queryClient = new QueryClient()

@@ -1,10 +1,10 @@
-import * as Dialog from '@radix-ui/react-dialog'
-
 import { CircleNotch, Trash } from '@phosphor-icons/react'
+
+import * as Dialog from '@radix-ui/react-dialog'
 
 import { useMutation, useQueryClient } from 'react-query'
 
-import { deletePlate } from '@/api'
+import { deletePlate } from '@/api/plates'
 
 interface Props {
 	id: string

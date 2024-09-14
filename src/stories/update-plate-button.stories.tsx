@@ -1,10 +1,12 @@
 import { delay, http, HttpResponse } from 'msw'
+
 import { Meta, StoryObj } from '@storybook/react'
 
 import { QueryClient, QueryClientProvider } from 'react-query'
 
+import { UpdatePlateButton } from '@/components/update-plate-button'
+
 import { env } from '@/env'
-import { UpdatePlateButton } from '@/components'
 
 const queryClient = new QueryClient()
 

@@ -1,8 +1,0 @@
-export { CreatePlate } from './create-plate'
-export { DeletePlateButton } from './delete-plate-button'
-export { DietPercentage, DietPercentageSkeleton } from './diet-percentage'
-export { Header } from './header'
-export { PlateCreatedModal } from './plate-created-modal'
-export { Plate } from './plate'
-export { Plates, PlatesSkeleton } from './plates'
-export { UpdatePlateButton } from './update-plate-button'

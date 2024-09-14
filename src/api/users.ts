@@ -1,5 +1,8 @@
-import { api, toastify } from '@/lib'
 import { env } from '@/env'
+import { api } from '@/lib/axios'
+
+import { toastify } from '@/lib/toastify'
+
 import { Metrics } from '@/interfaces'
 
 export async function getMetrics(): Promise<Metrics | null> {

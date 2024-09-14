@@ -1,16 +1,12 @@
 import { CircleNotch, Plus } from '@phosphor-icons/react'
 
 import { useForm } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
-
 import { useMutation, useQueryClient } from 'react-query'
 import { useState } from 'react'
 import { z } from 'zod'
+import { zodResolver } from '@hookform/resolvers/zod'
 
-import { createPlate } from '@/api'
-import { format, set } from 'date-fns'
-
-import { cn } from '@/lib/utils'
+import { createPlate } from '@/api/plates'
 
 import { Button } from '@/components/ui/button'
 import { Calendar } from '@/components/ui/calendar'
@@ -42,6 +38,9 @@ import {
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Textarea } from '@/components/ui/textarea'
 
+import { cn } from '@/lib/utils'
+import { dateFns } from '@/lib/date-fns'
+
 const createPlateSchema = z.object({
   name: z.string()
 		.min(2, {
@@ -50,13 +49,11 @@ const createPlateSchema = z.object({
   description: z.string()
 		.optional(),
   inDiet: z.enum(['true', 'false']),
-  createdAtDate: z.date()
-		.optional(),
+  createdAtDate: z.date(),
   createdAtHour: z.string()
 		.regex(/^(?:[01]\d|2[0-3]):[0-5]\d$/, {
 			message: 'Informe uma hora válida'
 		})
-		.optional()
 })
 
 type CreatePlateSchema = z.infer<typeof createPlateSchema>
@@ -88,16 +85,7 @@ export function CreatePlate() {
 	})
 
 	async function onSubmit(data: CreatePlateSchema) {
-		const [hours, minutes] = data.createdAtHour!.split(':').map(Number)
- 
-		const updatedDate = set(data.createdAtDate!, {
-			hours,
-			minutes
-		})
-
-		const date = format(updatedDate, 'yyyy-MM-dd')
-		const time = format(updatedDate, 'HH:mm:ss.SSS')
-		const createdAt = `${date}T${time}Z`
+		const createdAt = dateFns.getCreatedAt(data.createdAtDate, data.createdAtHour)
 
 		mutate({
 			name: data.name,
@@ -207,7 +195,7 @@ export function CreatePlate() {
 																	)}
 																>
 																	{field.value ? (
-																		format(field.value, 'dd/MM/yyyy')
+																		dateFns.formatAsDayMonthYear(field.value)
 																	) : (
 																		<span>Escolha uma data</span>
 																	)}

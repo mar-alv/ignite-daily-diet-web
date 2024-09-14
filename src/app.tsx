@@ -1,15 +1,12 @@
 import { Suspense } from 'react'
-import { ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
 
-import {
-	CreatePlate,
-	DietPercentage,
-	DietPercentageSkeleton,
-	Header,
-	Plates,
-	PlatesSkeleton
-} from '@/components'
+import 'react-toastify/dist/ReactToastify.css'
+import { ToastContainer } from 'react-toastify'
+
+import { CreatePlate } from '@/components/create-plate'
+import { DietPercentage,	DietPercentageSkeleton } from '@/components/diet-percentage'
+import { Header } from '@/components/header'
+import { Plates, PlatesSkeleton } from '@/components/plates'
 
 export function App() {
   return (
