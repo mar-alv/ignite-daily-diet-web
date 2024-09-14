@@ -1,4 +1,4 @@
-import './index.css'
+import './global.css'
 
 import { QueryClient, QueryClientProvider } from 'react-query'
 import React from 'react'

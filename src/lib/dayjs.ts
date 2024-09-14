@@ -6,6 +6,7 @@ import timezone from 'dayjs/plugin/timezone'
 dayJs.extend(utc)
 dayJs.extend(timezone)
 
+// TODO: remove lib
 export const dayjs = {
 	getDateAsDDMMYY(date: string) {
 		const formattedDate = dayJs(date).format('DD.MM.YY')

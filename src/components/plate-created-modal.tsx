@@ -1,9 +1,17 @@
 import clsx from 'clsx'
 
-import * as Dialog from '@radix-ui/react-dialog'
-
 import stayedInDietImg from '/stayed-in-diet.png'
 import stayedOutOfDietImg from '/stayed-out-of-diet.png'
+
+import { Button } from '@/components/ui/button'
+import {
+	DialogClose,
+	DialogContent,
+	DialogDescription,
+	DialogFooter,
+	DialogHeader,
+	DialogTitle
+} from '@/components/ui/dialog'
 
 interface Props {
 	stayedInDiet: boolean
@@ -11,18 +19,18 @@ interface Props {
 
 export function PlateCreatedModal({ stayedInDiet }: Props) {
   return (
-		<Dialog.Content aria-describedby={undefined} className='max-w-sm w-full fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-8 grid justify-items-center rounded-s-2xl rounded-e-2xl bg-gray-700'>
-			<div className='gap-2 grid text-center'>
-				<Dialog.Title
+		<DialogContent aria-describedby={undefined} className='max-w-sm w-full fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-8 grid justify-items-center rounded-s-2xl rounded-e-2xl bg-gray-700'>
+			<DialogHeader className='gap-2 grid text-center'>
+				<DialogTitle
 					className={clsx(
 						'text-2xl font-bold',
 						stayedInDiet ? 'text-green-dark' : ' text-red-dark'
 					)}
 				>
 					{stayedInDiet ? 'Continue assim!' : 'Que pena!'}
-				</Dialog.Title>
+				</DialogTitle>
 
-				<Dialog.Description>
+				<DialogDescription>
 					{stayedInDiet ? (
 						<>
 							Você continua <strong>dentro da dieta</strong>. Muito bem!
@@ -32,8 +40,8 @@ export function PlateCreatedModal({ stayedInDiet }: Props) {
 							Você <strong>saiu da dieta</strong> dessa vez, mas continue se esforçando e não desista!
 						</>
 					)}
-				</Dialog.Description>
-			</div>
+				</DialogDescription>
+			</DialogHeader>
 
 			{stayedInDiet ? (
 				<img
@@ -49,9 +57,13 @@ export function PlateCreatedModal({ stayedInDiet }: Props) {
 				/>
 			)}
 
-			<Dialog.Close className='w-full mt-8 py-4 px-6 rounded-md text-sm font-bold text-white bg-gray-200 hover:bg-gray-300'>
-				Continuar
-			</Dialog.Close>
-		</Dialog.Content>
+			<DialogFooter>
+				<DialogClose>
+					<Button>
+						Continuar
+					</Button>
+				</DialogClose>
+			</DialogFooter>
+		</DialogContent>
  	)
 }

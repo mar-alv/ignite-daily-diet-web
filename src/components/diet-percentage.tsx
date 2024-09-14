@@ -7,6 +7,8 @@ import { useQuery } from 'react-query'
 
 import { getMetrics } from '@/api'
 
+// TODO: Rename to metrics
+// TODO: do this on update and delete plate: queryClient.invalidateQueries('getMetrics')
 export function DietPercentage() {
 	const { data } = useQuery('getMetrics', getMetrics, {
 		cacheTime: Infinity,
