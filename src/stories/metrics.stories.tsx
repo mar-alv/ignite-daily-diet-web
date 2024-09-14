@@ -5,20 +5,20 @@ import { Meta, StoryObj } from '@storybook/react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { Suspense } from 'react'
 
-import { DietPercentage, DietPercentageSkeleton } from '@/components/diet-percentage'
+import { Metrics, MetricsSkeleton } from '@/components/metrics'
 
 import { env } from '@/env'
 
 const queryClient = new QueryClient()
 
-const meta: Meta<typeof DietPercentage> = {
+const meta: Meta<typeof Metrics> = {
   title: 'components/diet percentage',
-  component: DietPercentage,
+  component: Metrics,
   tags: ['autodocs'],
   decorators: [
     (Story) => (
       <QueryClientProvider client={queryClient}>
-        <Suspense fallback={<DietPercentageSkeleton />}>
+        <Suspense fallback={<MetricsSkeleton />}>
           <Story />
         </Suspense>
       </QueryClientProvider>

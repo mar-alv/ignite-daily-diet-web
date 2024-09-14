@@ -7,16 +7,15 @@ import { useQuery } from 'react-query'
 
 import { getMetrics } from '@/api/users'
 
-// TODO: Rename to metrics
-// TODO: do this on update and delete plate: queryClient.invalidateQueries('getMetrics')
-export function DietPercentage() {
+// TODO: do this on update plate: queryClient.invalidateQueries('getMetrics')
+export function Metrics() {
 	const { data } = useQuery('getMetrics', getMetrics, {
 		cacheTime: Infinity,
 		staleTime: Infinity,
 		suspense: true
 	})
 
-	if (!data) return <DietPercentageSkeleton />
+	if (!data) return <MetricsSkeleton />
 
 	const { bestDietSequence, dietPercentage, platesAmount, platesOnDiet, platesOutOfDiet } = data
 
@@ -84,7 +83,7 @@ export function DietPercentage() {
 	)
 }
 
-export function DietPercentageSkeleton() {
+export function MetricsSkeleton() {
 	return (
 		<section className='mt-8 gap-3 flex flex-wrap justify-between text-center'>
 			<article className='flex-1'>

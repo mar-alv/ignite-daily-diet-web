@@ -4,8 +4,8 @@ import 'react-toastify/dist/ReactToastify.css'
 import { ToastContainer } from 'react-toastify'
 
 import { CreatePlate } from '@/components/create-plate'
-import { DietPercentage,	DietPercentageSkeleton } from '@/components/diet-percentage'
 import { Header } from '@/components/header'
+import { Metrics,	MetricsSkeleton } from '@/components/metrics'
 import { Plates, PlatesSkeleton } from '@/components/plates'
 
 export function App() {
@@ -14,8 +14,8 @@ export function App() {
 			<Header />
 
 			<main className='grid gap-10'>
-				<Suspense fallback={<DietPercentageSkeleton />}>
-					<DietPercentage />
+				<Suspense fallback={<MetricsSkeleton />}>
+					<Metrics />
 				</Suspense>
 
 				<CreatePlate />

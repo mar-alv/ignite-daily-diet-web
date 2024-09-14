@@ -26,6 +26,7 @@ export function DeletePlateButton({ id }: Props) {
 	const { isLoading, mutate } = useMutation(deletePlate, {
 		onSuccess: () => {
 			queryClient.invalidateQueries('getPlates')
+			queryClient.invalidateQueries('getMetrics')
 		}
 	})
 
