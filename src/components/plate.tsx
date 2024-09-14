@@ -26,7 +26,7 @@ export const Plate = memo(({ plate }: Props) => {
 	return (
 		<Accordion collapsible type='single'>
 			<AccordionItem value={id} className='group'>
-				<AccordionTrigger className='py-[14px] px-4 flex justify-between items-center border-[1px] border-gray-500 rounded-md cursor-pointer dark:border-none dark:bg-gray-200 dark:hover:bg-gray-200/50'>
+				<AccordionTrigger className='py-[14px] px-4 flex justify-between items-center border-[1px] border-gray-500 rounded-md cursor-pointer dark:border-none dark:bg-gray-700 dark:hover:bg-gray-800'>
 					<div className='gap-[10px] flex justify-between items-center'>
 						<span>
 							{dateFns.formatAsHours(createdAt)}
@@ -42,7 +42,7 @@ export const Plate = memo(({ plate }: Props) => {
 					<div
 						className={clsx(
 							'size-[14px] rounded-full',
-							inDiet ? 'bg-green-mid' : 'bg-red-mid'
+							inDiet ? 'bg-emerald-400' : 'bg-rose-400'
 						)}
 					/>
 				</AccordionTrigger>
@@ -71,11 +71,11 @@ export const Plate = memo(({ plate }: Props) => {
 							</p>
 						</div>
 
-						<div className='py-2 px-4 gap-2 flex items-center justify-self-start rounded-full dark:bg-primary/20'>
+						<div className='py-2 px-4 gap-2 flex items-center justify-self-start rounded-full dark:bg-gray-700'>
 							<div
 								className={clsx(
 									'size-2 rounded-full',
-									inDiet ? 'bg-green-dark' : 'bg-red-dark'
+									inDiet ? 'bg-emerald-500' : 'bg-rose-500'
 								)}
 							/>
 

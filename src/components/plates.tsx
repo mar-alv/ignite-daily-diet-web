@@ -33,7 +33,7 @@ export function Plates() {
 			{Object.keys(plates).map((date, index) => (
 				<Accordion key={index} type='multiple' defaultValue={index === 0 ? [date] : ['']}>
 					<AccordionItem value={date}>
-						<AccordionTrigger className='w-full px-6 flex justify-between items-center rounded-md group dark:bg-gray-200 dark:hover:bg-gray-200/50'>
+						<AccordionTrigger className='w-full px-6 flex justify-between items-center rounded-md group dark:bg-gray-700 dark:hover:bg-gray-800'>
 							<h4 className='text-lg text-primary'>
 								{dateFns.formatAsDayMonthYearSeparatedByDots(new Date(date))}
 							</h4>

@@ -24,7 +24,7 @@ export function PlateCreatedModal({ stayedInDiet }: Props) {
 				<DialogTitle
 					className={clsx(
 						'text-2xl font-bold',
-						stayedInDiet ? 'text-green-dark' : ' text-red-dark'
+						stayedInDiet ? 'text-emerald-500' : ' text-rose-500'
 					)}
 				>
 					{stayedInDiet ? 'Continue assim!' : 'Que pena!'}

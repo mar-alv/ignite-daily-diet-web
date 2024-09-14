@@ -18,61 +18,61 @@ export function Metrics() {
 	const { bestDietSequence, dietPercentage, platesAmount, platesOnDiet, platesOutOfDiet } = data
 
 	return (
-		<section className='mt-8 gap-3 flex flex-wrap justify-between text-center'>
+		<section className='mt-8 gap-3 flex flex-wrap justify-between text-center text-primary dark:text-muted'>
 			<article
 				className={clsx(
 					'p-4 flex-1 flex flex-col justify-center rounded-lg',
-					dietPercentage < 50 ? 'bg-red-light dark:bg-red-mid' : 'bg-green-light dark:bg-green-mid'
+					dietPercentage < 50 ? 'bg-rose-300 dark:bg-rose-400' : 'bg-emerald-300 dark:bg-emerald-400'
 				)}
 			>
-				<h1 className='text-[2rem] font-bold text-gray-100'>
+				<h1 className='text-[2rem] font-bold'>
 					{dietPercentage}%
 				</h1>
 
-				<p className='text-sm text-gray-200'>
+				<p className='text-sm'>
 					das refeições dentro da dieta
 				</p>
 			</article>
 
 			<article className='gap-3 grid flex-1'>
-				<div className='p-4 rounded-lg bg-gray-600'>
-					<h3 className='text-2xl text-gray-100'>
+				<div className='p-4 rounded-lg text-primary bg-gray-300 dark:bg-gray-700'>
+					<h3 className='text-2xl'>
 						{bestDietSequence}
 					</h3>
 
-					<p className='text-sm text-gray-200'>
+					<p className='text-sm'>
 						melhor sequência de pratos dentro da dieta
 					</p>
 				</div>
 
-				<div className='p-4 rounded-lg bg-gray-600'>
-					<h3 className='text-2xl text-gray-100'>
+				<div className='p-4 rounded-lg  text-primary bg-gray-300 dark:bg-gray-700'>
+					<h3 className='text-2xl'>
 						{platesAmount}
 					</h3>
 
-					<p className='text-sm text-gray-200'>
+					<p className='text-sm'>
 						refeições registradas
 					</p>
 				</div>
 			</article>
 
 			<article  className='gap-3 grid flex-1'>
-				<div className='p-4 rounded-lg bg-green-light dark:bg-green-mid'>
-					<h3 className='text-2xl text-gray-100'>
+				<div className='p-4 rounded-lg bg-emerald-300 dark:bg-emerald-400'>
+					<h3 className='text-2xl'>
 						{platesOnDiet}
 					</h3>
 
-					<p className='text-sm text-gray-200'>
+					<p className='text-sm'>
 						refeições dentro da dieta
 					</p>
 				</div>
 
-				<div className='p-4 rounded-lg bg-red-light dark:bg-red-mid'>
-					<h3 className='text-2xl text-gray-100'>
+				<div className='p-4 rounded-lg bg-rose-300 dark:bg-rose-400'>
+					<h3 className='text-2xl'>
 						{platesOutOfDiet}
 					</h3>
 
-					<p className='text-sm text-gray-200'>
+					<p className='text-sm'>
 						refeições fora da dieta
 					</p>
 				</div>
@@ -85,7 +85,7 @@ export function MetricsSkeleton() {
 	return (
 		<section className='mt-8 gap-3 flex flex-wrap justify-between text-center'>
 			<article className='flex-1'>
-				<Skeleton className='h-[180px] rounded-lg bg-green-mid' />
+				<Skeleton className='h-[180px] rounded-lg bg-emerald-400' />
 			</article>
 
 			<article className='gap-3 grid flex-1'>
@@ -94,8 +94,8 @@ export function MetricsSkeleton() {
 			</article>
 
 			<article  className='gap-3 grid flex-1'>
-				<Skeleton className='h-[84px] rounded-lg bg-green-mid' />
-				<Skeleton className='h-[84px] rounded-lg bg-red-mid' />
+				<Skeleton className='h-[84px] rounded-lg bg-emerald-400' />
+				<Skeleton className='h-[84px] rounded-lg bg-rose-400' />
 			</article>
 		</section>
 	)

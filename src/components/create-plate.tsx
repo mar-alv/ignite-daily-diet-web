@@ -256,12 +256,12 @@ export function CreatePlate() {
 													>
 														<FormItem
 															className={cn(
-																'p-4 flex justify-center items-center space-x-3 space-y-0 cursor-pointer rounded-lg bg-gray-600',
-																field.value === 'true' && 'bg-green-light ring-2 ring-green-dark dark:bg-green-mid'
+																'p-4 flex justify-center items-center space-x-3 space-y-0 cursor-pointer rounded-lg bg-gray-200',
+																field.value === 'true' && 'bg-emerald-300 ring-2 ring-emerald-500 dark:bg-emerald-400'
 															)}
 														>
 															<FormControl>
-																<RadioGroupItem value='true' className='size-2 border-0 ring-0 bg-green-dark' />
+																<RadioGroupItem value='true' className='size-2 border-0 ring-0 bg-emerald-500' />
 															</FormControl>
 
 															<FormLabel className='cursor-pointer font-bold text-primary dark:text-background'>
@@ -271,12 +271,12 @@ export function CreatePlate() {
 
 														<FormItem
 															className={cn(
-																'p-4 flex justify-center items-center space-x-3 space-y-0 cursor-pointer rounded-lg bg-gray-600',
-																field.value === 'false' && 'bg-red-light ring-2 ring-red-dark dark:bg-red-mid'
+																'p-4 flex justify-center items-center space-x-3 space-y-0 cursor-pointer rounded-lg bg-gray-200',
+																field.value === 'false' && 'bg-rose-300 ring-2 ring-rose-500 dark:bg-rose-400'
 															)}
 														>
 															<FormControl>
-																<RadioGroupItem value='false' className='size-2 border-0 ring-0 bg-red-dark' />
+																<RadioGroupItem value='false' className='size-2 border-0 ring-0 bg-rose-500' />
 															</FormControl>
 
 															<FormLabel className='cursor-pointer font-bold text-primary dark:text-background'>
