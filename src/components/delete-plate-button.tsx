@@ -1,10 +1,20 @@
 import { CircleNotch, Trash } from '@phosphor-icons/react'
 
-import * as Dialog from '@radix-ui/react-dialog'
-
 import { useMutation, useQueryClient } from 'react-query'
 
 import { deletePlate } from '@/api/plates'
+
+import { Button } from '@/components/ui/button'
+import {
+	Dialog,
+	DialogClose,
+	DialogContent,
+	DialogHeader,
+	DialogOverlay,
+	DialogPortal,
+	DialogTitle,
+	DialogTrigger
+} from '@/components/ui/dialog'
 
 interface Props {
 	id: string
@@ -24,36 +34,42 @@ export function DeletePlateButton({ id }: Props) {
 	}
 
 	return (
-		<Dialog.Root>
-			<Dialog.Trigger className='max-w-80 w-full py-4 px-6 gap-3 flex justify-center items-center rounded-md border-[1px] border-gray-100 text-sm text-gray-100 hover:bg-gray-600'>
-				<Trash size={18} />
+		<Dialog>
+			<DialogTrigger>
+				<Button size='lg' variant='outline'>
+					<Trash size={18} />
 
-				Excluir refeição
-			</Dialog.Trigger>
+					Excluir refeição
+				</Button>
+			</DialogTrigger>
 
-			<Dialog.Portal>
-				<Dialog.Overlay className='inset-0 absolute bg-gray-300 bg-opacity-70' />
+			<DialogPortal>
+				<DialogOverlay />
 
-				<Dialog.Content aria-describedby={undefined} className='max-w-sm w-full p-6 gap-8 grid fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-s-2xl rounded-e-2xl bg-gray-700'>
-					<Dialog.Title className='max-w-56 justify-self-center text-center text-lg font-bold text-gray-200'>
-						Deseja realmente excluir o registro da refeição?
-					</Dialog.Title>
+				<DialogContent aria-describedby={undefined} className='max-w-sm w-full p-6 gap-8 grid fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-s-2xl rounded-e-2xl bg-gray-700'>
+					<DialogHeader>
+						<DialogTitle className='max-w-56 justify-self-center text-center text-lg font-bold text-gray-200'>
+							Deseja realmente excluir o registro da refeição?
+						</DialogTitle>
+					</DialogHeader>
 
 					<div className='gap-3 grid grid-cols-2 text-sm font-bold'>
-						<Dialog.Close className='py-4 px-6 gap-3 flex justify-center items-center rounded-md border-[1px] border-gray-100 text-sm text-gray-100 hover:bg-gray-600'>
-							Cancelar
-						</Dialog.Close>
+						<DialogClose>
+							<Button size='lg' variant='outline'>
+								Cancelar
+							</Button>
+						</DialogClose>
 
-						<button disabled={isLoading} onClick={handleDeletePlate} className='py-4 px-6 gap-3 flex justify-center items-center rounded-md border-[1px] border-gray-100 text-sm text-white bg-gray-100 hover:bg-gray-300 disabled:bg-gray-300 disabled:cursor-not-allowed'>
+						<Button disabled={isLoading} onClick={handleDeletePlate} size='lg'>
 							{isLoading ? (
 								<CircleNotch size={18} className='animate-spin' />
 							) :
 								'Sim, excluir'
 							}
-						</button>
+						</Button>
 					</div>
-				</Dialog.Content>
-			</Dialog.Portal>
-		</Dialog.Root>
+				</DialogContent>
+			</DialogPortal>
+		</Dialog>
 	)
 }
