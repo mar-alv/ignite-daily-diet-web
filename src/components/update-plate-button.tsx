@@ -109,7 +109,7 @@ export function UpdatePlateButton({ plate }: Props) {
 			<DialogPortal>
 				<DialogOverlay />
 
-				<DialogContent aria-describedby={undefined} className='bg-gray-700'>
+				<DialogContent aria-describedby={undefined}>
 					<DialogHeader>
 						<DialogTitle className='sr-only'>
 							Editar refeição
@@ -235,14 +235,14 @@ export function UpdatePlateButton({ plate }: Props) {
 												<FormItem
 													className={cn(
 														'p-4 flex justify-center items-center space-x-3 space-y-0 cursor-pointer rounded-lg bg-gray-600',
-														field.value === 'true' && 'bg-green-light ring-2 ring-green-dark'
+														field.value === 'true' && 'bg-green-light ring-2 ring-green-dark dark:bg-green-mid'
 													)}
 												>
 													<FormControl>
 														<RadioGroupItem value='true' className='size-2 border-0 ring-0 bg-green-dark' />
 													</FormControl>
 
-													<FormLabel className='cursor-pointer font-bold'>
+													<FormLabel className='cursor-pointer font-bold text-primary dark:text-background'>
 														Sim
 													</FormLabel>
 												</FormItem>
@@ -250,14 +250,14 @@ export function UpdatePlateButton({ plate }: Props) {
 												<FormItem
 													className={cn(
 														'p-4 flex justify-center items-center space-x-3 space-y-0 cursor-pointer rounded-lg bg-gray-600',
-														field.value === 'false' && 'bg-red-light ring-2 ring-red-dark'
+														field.value === 'false' && 'bg-red-light ring-2 ring-red-dark dark:bg-red-mid'
 													)}
 												>
 													<FormControl>
 														<RadioGroupItem value='false' className='size-2 border-0 ring-0 bg-red-dark' />
 													</FormControl>
 
-													<FormLabel className='cursor-pointer font-bold'>
+													<FormLabel className='cursor-pointer font-bold text-primary dark:text-background'>
 														Não
 													</FormLabel>
 												</FormItem>
