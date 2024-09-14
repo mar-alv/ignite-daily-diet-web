@@ -71,7 +71,7 @@ export const Plate = memo(({ plate }: Props) => {
 							</p>
 						</div>
 
-						<div className='py-2 px-4 gap-2 flex items-center justify-self-start rounded-full bg-gray-600'>
+						<div className='py-2 px-4 gap-2 flex items-center justify-self-start rounded-full dark:bg-primary/20'>
 							<div
 								className={clsx(
 									'size-2 rounded-full',
@@ -79,7 +79,7 @@ export const Plate = memo(({ plate }: Props) => {
 								)}
 							/>
 
-							<span className='text-sm text-gray-100'>
+							<span className='text-sm text-primary'>
 								{inDiet ? 'dentro da dieta' : 'fora da dieta' }
 							</span>
 						</div>

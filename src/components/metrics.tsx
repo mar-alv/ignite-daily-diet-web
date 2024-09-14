@@ -1,11 +1,10 @@
 import clsx from 'clsx'
 
-import 'react-loading-skeleton/dist/skeleton.css'
-import Skeleton from 'react-loading-skeleton'
-
 import { useQuery } from 'react-query'
 
 import { getMetrics } from '@/api/users'
+
+import { Skeleton } from '@/components/ui/skeleton'
 
 export function Metrics() {
 	const { data } = useQuery('getMetrics', getMetrics, {
@@ -86,17 +85,17 @@ export function MetricsSkeleton() {
 	return (
 		<section className='mt-8 gap-3 flex flex-wrap justify-between text-center'>
 			<article className='flex-1'>
-				<Skeleton height={180} baseColor='#e5f0db' highlightColor='#cbe4b4' className='rounded-lg' />
+				<Skeleton className='h-[180px] rounded-lg bg-green-mid' />
 			</article>
 
 			<article className='gap-3 grid flex-1'>
-				<Skeleton height={84} className='rounded-lg'/>
-				<Skeleton height={84} className='rounded-lg'/>
+				<Skeleton className='h-[84px] rounded-lg' />
+				<Skeleton className='h-[84px] rounded-lg' />
 			</article>
 
 			<article  className='gap-3 grid flex-1'>
-				<Skeleton height={84} baseColor='#e5f0db' highlightColor='#cbe4b4' className='rounded-lg' />
-				<Skeleton height={84} baseColor='#f4e6e7' highlightColor='#bf3b44' className='rounded-lg' />
+				<Skeleton className='h-[84px] rounded-lg bg-green-mid' />
+				<Skeleton className='h-[84px] rounded-lg bg-red-mid' />
 			</article>
 		</section>
 	)

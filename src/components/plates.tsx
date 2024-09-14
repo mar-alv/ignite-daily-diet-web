@@ -1,8 +1,5 @@
 import { CaretDown } from '@phosphor-icons/react'
 
-import 'react-loading-skeleton/dist/skeleton.css'
-import Skeleton from 'react-loading-skeleton'
-
 import { useQuery } from 'react-query'
 
 import { getPlates } from '@/api/plates'
@@ -18,6 +15,7 @@ import { Plate } from '@/components/plate'
 import { Plate as IPlate } from '@/interfaces'
 
 import { dateFns } from '@/lib/date-fns'
+import { Skeleton } from '@/components/ui/skeleton'
 
 export function Plates() {
 	const { data } = useQuery('getPlates', getPlates, {
@@ -59,10 +57,12 @@ export function Plates() {
 export function PlatesSkeleton() {
 	return (
 		<section className='mt-8'>
-			<Skeleton width={72} height={24} />
+			<Skeleton className='w-[72px] h-6' />
 
 			<div className='mt-[14px] gap-2 grid'>
-				<Skeleton count={4} height={48} />
+				{Array.from({ length: 4 }).map((_) => (
+					<Skeleton className='h-[84px]' />
+				))}
 			</div>
 		</section>
 	)
