@@ -99,7 +99,7 @@ export function UpdatePlateButton({ plate }: Props) {
 	return (
 		<Dialog onOpenChange={handleModalOpenChange}>
 			<DialogTrigger asChild>
-				<Button className='max-w-80 gap-2 flex-1'>
+				<Button size='lg' className='max-w-80 gap-2 flex-1'>
 					<PencilSimpleLine size={18} />
 
 					Editar refeição
@@ -109,7 +109,7 @@ export function UpdatePlateButton({ plate }: Props) {
 			<DialogPortal>
 				<DialogOverlay />
 
-				<DialogContent aria-describedby={undefined} className='max-w-sm w-full p-6 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-s-2xl rounded-e-2xl bg-gray-700'>
+				<DialogContent aria-describedby={undefined} className='bg-gray-700'>
 					<DialogHeader>
 						<DialogTitle className='sr-only'>
 							Editar refeição

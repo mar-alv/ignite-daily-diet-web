@@ -104,7 +104,6 @@ export function CreatePlate() {
 			}
 	}
 
-	// TODO: test removing most of the dialog content and form styles
 	return (
 		<Dialog onOpenChange={handleModalOpenChange}>
 			<section className='grid'>
@@ -128,7 +127,7 @@ export function CreatePlate() {
 					{showCreatedModal ? (
 						<PlateCreatedModal stayedInDiet={stayedInDiet} />
 					) : (
-						<DialogContent aria-describedby={undefined} className='max-w-sm w-full p-6 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-s-2xl rounded-e-2xl bg-gray-700'>
+						<DialogContent aria-describedby={undefined} className='bg-gray-700'>
 							<div className='flex justify-end'>
 								<DialogClose />
 							</div>
