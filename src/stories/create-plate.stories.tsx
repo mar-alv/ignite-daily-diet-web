@@ -5,6 +5,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 
 import { CreatePlate } from '@/components/create-plate'
+import { Toaster } from '@/components/ui/toaster'
 
 import { env } from '@/env'
 
@@ -18,6 +19,7 @@ const meta: Meta<typeof CreatePlate> = {
     (Story) => (
       <QueryClientProvider client={queryClient}>
         <Story />
+        <Toaster />
       </QueryClientProvider>
     )
   ]

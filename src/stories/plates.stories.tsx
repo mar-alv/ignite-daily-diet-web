@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import { Suspense } from 'react'
 
 import { Plates, PlatesSkeleton } from '@/components/plates'
+import { Toaster } from '@/components/ui/toaster'
 
 import { env } from '@/env'
 
@@ -20,6 +21,7 @@ const meta: Meta<typeof Plates> = {
       <QueryClientProvider client={queryClient}>
         <Suspense fallback={<PlatesSkeleton />}>
           <Story />
+       	 	<Toaster />
         </Suspense>
       </QueryClientProvider>
     ),
@@ -113,3 +115,5 @@ export const TwoDates: Story = {
 		}
 	}
 }
+
+// TODO: make error story to keep seing the skeleton and toast

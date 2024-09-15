@@ -4,6 +4,7 @@ import { Meta, StoryObj } from '@storybook/react'
 
 import { QueryClient, QueryClientProvider } from 'react-query'
 
+import { Toaster } from '@/components/ui/toaster'
 import { UpdatePlateButton } from '@/components/update-plate-button'
 
 import { env } from '@/env'
@@ -18,6 +19,7 @@ const meta: Meta<typeof UpdatePlateButton> = {
     (Story) => (
       <QueryClientProvider client={queryClient}>
         <Story />
+       	<Toaster />
       </QueryClientProvider>
     )
   ]

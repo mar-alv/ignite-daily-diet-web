@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import { Suspense } from 'react'
 
 import { Metrics, MetricsSkeleton } from '@/components/metrics'
+import { Toaster } from '@/components/ui/toaster'
 
 import { env } from '@/env'
 
@@ -20,6 +21,7 @@ const meta: Meta<typeof Metrics> = {
       <QueryClientProvider client={queryClient}>
         <Suspense fallback={<MetricsSkeleton />}>
           <Story />
+        	<Toaster />
         </Suspense>
       </QueryClientProvider>
     )
@@ -69,3 +71,5 @@ export const outOfDiet: Story = {
 		}
 	}
 }
+
+// TODO: make error story to keep seing the skeleton and toast
