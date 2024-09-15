@@ -13,18 +13,24 @@ import {
 import { Plate } from '@/components/plate'
 import { Skeleton } from '@/components/ui/skeleton'
 
+import { useToast } from '@/hooks/use-toast'
+
 import { Plate as IPlate } from '@/interfaces'
 
 import { dateFns } from '@/lib/date-fns'
-import { toastify } from '@/lib/toastify'
 
 export function Plates() {
+  const { toast } = useToast()
+
 	const { data } = useQuery('getPlates', getPlates, {
 		cacheTime: Infinity,
 		staleTime: Infinity,
 		suspense: true,
 		onError(e: Error) {
-			toastify.errorToast(e?.message)
+			toast({
+				title: e?.message,
+				variant: 'error'
+			})
 		}
 	})
 

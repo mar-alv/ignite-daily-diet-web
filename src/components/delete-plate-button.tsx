@@ -16,13 +16,15 @@ import {
 	DialogTrigger
 } from '@/components/ui/dialog'
 
-import { toastify } from '@/lib/toastify'
+import { useToast } from '@/hooks/use-toast'
 
 interface Props {
 	id: string
 }
 
 export function DeletePlateButton({ id }: Props) {
+  const { toast } = useToast()
+
 	const queryClient = useQueryClient()
 
 	const { isLoading, mutate } = useMutation(deletePlate, {
@@ -30,10 +32,16 @@ export function DeletePlateButton({ id }: Props) {
 			queryClient.invalidateQueries('getPlates')
 			queryClient.invalidateQueries('getMetrics')
 
-			toastify.successToast('Refeição excluída com sucesso!')
+			toast({
+				title: 'Refeição excluída com sucesso!',
+				variant: 'success'
+			})
 		},
 		onError(e: Error) {
-			toastify.errorToast(e?.message)
+			toast({
+				title: e?.message,
+				variant: 'error'
+			})
 		}
 	})
 

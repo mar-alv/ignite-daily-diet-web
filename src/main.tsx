@@ -4,6 +4,8 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
+import { Toaster } from '@/components/ui/toaster'
+
 import { App } from './app.tsx'
 import { enableMsw } from './api/mocks'
 
@@ -14,6 +16,7 @@ enableMsw().then(() => {
 		<React.StrictMode>
 			<QueryClientProvider client={queryClient}>
 				<App />
+        <Toaster />
 			</QueryClientProvider>
 		</React.StrictMode>
 	)

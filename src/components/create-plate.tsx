@@ -22,12 +22,14 @@ import { PlateCreatedModal } from '@/components/plate-created-modal'
 import { PlateForm } from '@/components/plate-form'
 
 import { dateFns } from '@/lib/date-fns'
-import { toastify } from '@/lib/toastify'
 import { PlateSchema, plateSchema } from '@/lib/zod'
+import { useToast } from '@/hooks/use-toast'
 
 export function CreatePlate() {
 	const [showCreatedModal, setShowCreatedModal] = useState(false)
 	const [stayedInDiet, setStayedInDiet] = useState(false)
+
+  const { toast } = useToast()
 
 	const queryClient = useQueryClient()
 
@@ -40,10 +42,16 @@ export function CreatePlate() {
 			queryClient.invalidateQueries('getMetrics')
 			queryClient.invalidateQueries('getPlates')
 
-			toastify.successToast('Refeição criada com sucesso!')
+			toast({
+				title: 'Refeição criada com sucesso!',
+				variant: 'success'
+			})
 		},
 		onError(e: Error) {
-			toastify.errorToast(e?.message)
+			toast({
+				title: e?.message,
+				variant: 'error'
+			})
 		}
 	})
 
