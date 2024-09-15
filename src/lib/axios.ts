@@ -12,7 +12,7 @@ export const api = axios.create({
 })
 
 function isAxiosError(error: any): error is AxiosError {
-  return error.isAxiosError === true
+  return error?.isAxiosError === true
 }
 
 export function getErrorMessage(error: unknown) {

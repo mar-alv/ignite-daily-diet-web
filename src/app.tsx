@@ -1,3 +1,5 @@
+import { ErrorBoundary } from 'react-error-boundary'
+import { useQueryErrorResetBoundary } from 'react-query'
 import { Suspense } from 'react'
 
 import { CreatePlate } from '@/components/create-plate'
@@ -6,21 +8,36 @@ import { Metrics,	MetricsSkeleton } from '@/components/metrics'
 import { Plates, PlatesSkeleton } from '@/components/plates'
 
 export function App() {
+  const { reset } = useQueryErrorResetBoundary()
 
   return (
 		<div className='p-6'>
 			<Header />
 
 			<main className='grid gap-10'>
-				<Suspense fallback={<MetricsSkeleton />}>
-					<Metrics />
-				</Suspense>
+				<ErrorBoundary
+					onReset={reset}
+					fallbackRender={() => (
+						<MetricsSkeleton />
+					)}
+				>
+					<Suspense fallback={<MetricsSkeleton />}>
+						<Metrics />
+					</Suspense>
+				</ErrorBoundary>
 
 				<CreatePlate />
 
-				<Suspense fallback={<PlatesSkeleton />}>
-					<Plates />
-				</Suspense>
+				<ErrorBoundary
+					onReset={reset}
+					fallbackRender={() => (
+						<PlatesSkeleton />
+					)}
+				>
+					<Suspense fallback={<PlatesSkeleton />}>
+						<Plates />
+					</Suspense>
+				</ErrorBoundary>
 			</main>
 		</div>
 	)
