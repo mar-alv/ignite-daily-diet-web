@@ -42,7 +42,7 @@ export const Plate = memo(({ plate }: Props) => {
 					<div
 						className={clsx(
 							'size-[14px] rounded-full',
-							inDiet ? 'bg-emerald-400' : 'bg-rose-400'
+							inDiet ? 'bg-emerald-100' : 'bg-rose-100'
 						)}
 					/>
 				</AccordionTrigger>

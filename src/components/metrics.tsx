@@ -22,7 +22,7 @@ export function Metrics() {
 			<article
 				className={clsx(
 					'p-4 flex-1 flex flex-col justify-center rounded-lg',
-					dietPercentage < 50 ? 'bg-rose-300' : 'bg-emerald-300'
+					dietPercentage < 50 ? 'bg-rose-100' : 'bg-emerald-100'
 				)}
 			>
 				<h1 className='text-[2rem] font-bold'>
@@ -57,7 +57,7 @@ export function Metrics() {
 			</article>
 
 			<article  className='gap-3 grid flex-1'>
-				<div className='p-4 rounded-lg bg-emerald-300'>
+				<div className='p-4 rounded-lg bg-emerald-100'>
 					<h3 className='text-2xl'>
 						{platesOnDiet}
 					</h3>
@@ -67,7 +67,7 @@ export function Metrics() {
 					</p>
 				</div>
 
-				<div className='p-4 rounded-lg bg-rose-300'>
+				<div className='p-4 rounded-lg bg-rose-100'>
 					<h3 className='text-2xl'>
 						{platesOutOfDiet}
 					</h3>
