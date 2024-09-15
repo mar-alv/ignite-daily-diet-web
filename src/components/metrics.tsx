@@ -5,12 +5,16 @@ import { useQuery } from 'react-query'
 import { getMetrics } from '@/api/users'
 
 import { Skeleton } from '@/components/ui/skeleton'
+import { toastify } from '@/lib/toastify'
 
 export function Metrics() {
 	const { data } = useQuery('getMetrics', getMetrics, {
 		cacheTime: Infinity,
 		staleTime: Infinity,
-		suspense: true
+		suspense: true,
+		onError(e: Error) {
+			toastify.errorToast(e?.message)
+		}
 	})
 
 	if (!data) return <MetricsSkeleton />

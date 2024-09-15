@@ -21,7 +21,10 @@ export function Plates() {
 	const { data } = useQuery('getPlates', getPlates, {
 		cacheTime: Infinity,
 		staleTime: Infinity,
-		suspense: true
+		suspense: true,
+		onError(e: Error) {
+			toastify.errorToast(e?.message)
+		}
 	})
 
 	if (!data) return <PlatesSkeleton />

@@ -1,7 +1,5 @@
 import { env } from '@/env'
-import { api } from '@/lib/axios'
-
-import { toastify } from '@/lib/toastify'
+import { api, getErrorMessage } from '@/lib/axios'
 
 import { Metrics } from '@/interfaces'
 
@@ -11,8 +9,6 @@ export async function getMetrics(): Promise<Metrics | null> {
 
 		return response.data
 	} catch (e) {
-		toastify.errorToast('Não foi possível carregar as suas métricas!')
-
-		return null
+		throw new Error(getErrorMessage(e))
 	}
 }

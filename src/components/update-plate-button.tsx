@@ -21,6 +21,7 @@ import { PlateForm } from '@/components/plate-form'
 import { Plate } from '@/interfaces'
 
 import { dateFns } from '@/lib/date-fns'
+import { toastify } from '@/lib/toastify'
 import { plateSchema, PlateSchema } from '@/lib/zod'
 
 interface Props {
@@ -31,9 +32,14 @@ export function UpdatePlateButton({ plate }: Props) {
 	const queryClient = useQueryClient()
 
 	const { isLoading, mutate } = useMutation(updatePlate, {
-		onSuccess: () => {
+		onSuccess() {
 			queryClient.invalidateQueries('getMetrics')
 			queryClient.invalidateQueries('getPlates')
+
+			toastify.successToast('Refeição atualizada com sucesso!')
+		},
+		onError(e: Error) {
+			toastify.errorToast(e?.message)
 		}
 	})
 
