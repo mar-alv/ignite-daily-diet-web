@@ -8,7 +8,6 @@ import {
 	DialogClose,
 	DialogContent,
 	DialogDescription,
-	DialogFooter,
 	DialogHeader,
 	DialogTitle
 } from '@/components/ui/dialog'
@@ -19,7 +18,7 @@ interface Props {
 
 export function PlateCreatedModal({ stayedInDiet }: Props) {
   return (
-		<DialogContent aria-describedby={undefined} className='max-w-sm w-full fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-8 grid justify-items-center rounded-s-2xl rounded-e-2xl bg-gray-700'>
+		<DialogContent aria-describedby={undefined} className='max-w-96 grid justify-center'>
 			<DialogHeader className='gap-2 grid text-center'>
 				<DialogTitle
 					className={clsx(
@@ -57,13 +56,11 @@ export function PlateCreatedModal({ stayedInDiet }: Props) {
 				/>
 			)}
 
-			<DialogFooter>
-				<DialogClose>
-					<Button>
-						Continuar
-					</Button>
-				</DialogClose>
-			</DialogFooter>
+			<DialogClose asChild>
+				<Button>
+					Continuar
+				</Button>
+			</DialogClose>
 		</DialogContent>
  	)
 }

@@ -26,7 +26,7 @@ export const Plate = memo(({ plate }: Props) => {
 	return (
 		<Accordion collapsible type='single'>
 			<AccordionItem value={id} className='group'>
-				<AccordionTrigger className='py-[14px] px-4 flex justify-between items-center border-[1px] border-gray-500 rounded-md cursor-pointer dark:border-gray-400 dark:bg-gray-700 dark:hover:bg-gray-800'>
+				<AccordionTrigger className='py-[14px] px-4 flex justify-between items-center border-[1px] border-gray-300 rounded-md cursor-pointer'>
 					<div className='gap-[10px] flex justify-between items-center'>
 						<span>
 							{dateFns.formatAsHours(createdAt)}
@@ -50,28 +50,28 @@ export const Plate = memo(({ plate }: Props) => {
 				<AccordionContent className='gap-6 flex-1 flex flex-col justify-between group-data-[state=open]:p-4'>
 					<div className='gap-6 grid text-primary'>
 						<div className='gap-2 grid'>
-							<h1 className='text-xl font-bold dark:text-primary'>
+							<h1 className='text-xl font-bold'>
 								{name}
 							</h1>
 
 							{description && (
-								<p className='text-base dark:text-primary'>
+								<p className='text-base'>
 									{description}
 								</p>
 							)}
 						</div>
 
 						<div className='gap-2 grid'>
-							<h3 className='text-sm font-bold dark:text-primary'>
+							<h3 className='text-sm font-bold'>
 								Data e hora
 							</h3>
 
-							<p className='text-base dark:text-primary'>
+							<p className='text-base'>
 								{dateFns.formatAsDateAndAtHours(createdAt)}
 							</p>
 						</div>
 
-						<div className='py-2 px-4 gap-2 flex items-center justify-self-start rounded-full dark:bg-gray-700'>
+						<div className='py-2 px-4 gap-2 flex items-center justify-self-start rounded-full'>
 							<div
 								className={clsx(
 									'size-2 rounded-full',

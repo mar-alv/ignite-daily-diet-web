@@ -18,11 +18,11 @@ export function Metrics() {
 	const { bestDietSequence, dietPercentage, platesAmount, platesOnDiet, platesOutOfDiet } = data
 
 	return (
-		<section className='mt-8 gap-3 flex flex-wrap justify-between text-center text-primary dark:text-muted'>
+		<section className='mt-8 gap-3 flex flex-wrap justify-between text-center text-primary'>
 			<article
 				className={clsx(
 					'p-4 flex-1 flex flex-col justify-center rounded-lg',
-					dietPercentage < 50 ? 'bg-rose-300 dark:bg-rose-400' : 'bg-emerald-300 dark:bg-emerald-400'
+					dietPercentage < 50 ? 'bg-rose-300' : 'bg-emerald-300'
 				)}
 			>
 				<h1 className='text-[2rem] font-bold'>
@@ -35,7 +35,7 @@ export function Metrics() {
 			</article>
 
 			<article className='gap-3 grid flex-1'>
-				<div className='p-4 rounded-lg text-primary bg-gray-300 dark:bg-gray-700'>
+				<div className='p-4 rounded-lg text-primary bg-gray-200'>
 					<h3 className='text-2xl'>
 						{bestDietSequence}
 					</h3>
@@ -45,7 +45,7 @@ export function Metrics() {
 					</p>
 				</div>
 
-				<div className='p-4 rounded-lg  text-primary bg-gray-300 dark:bg-gray-700'>
+				<div className='p-4 rounded-lg  text-primary bg-gray-200'>
 					<h3 className='text-2xl'>
 						{platesAmount}
 					</h3>
@@ -57,7 +57,7 @@ export function Metrics() {
 			</article>
 
 			<article  className='gap-3 grid flex-1'>
-				<div className='p-4 rounded-lg bg-emerald-300 dark:bg-emerald-400'>
+				<div className='p-4 rounded-lg bg-emerald-300'>
 					<h3 className='text-2xl'>
 						{platesOnDiet}
 					</h3>
@@ -67,7 +67,7 @@ export function Metrics() {
 					</p>
 				</div>
 
-				<div className='p-4 rounded-lg bg-rose-300 dark:bg-rose-400'>
+				<div className='p-4 rounded-lg bg-rose-300'>
 					<h3 className='text-2xl'>
 						{platesOutOfDiet}
 					</h3>
