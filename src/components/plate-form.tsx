@@ -155,7 +155,11 @@ export function PlateForm({ form, isLoading, onSubmit }: Props) {
 										)}
 									>
 										<FormControl>
-											<RadioGroupItem value='true' className='size-2 border-0 ring-0 bg-emerald-500' />
+											<RadioGroupItem
+												data-testid='on-diet-radio'
+												value='true'
+												className='size-2 border-0 ring-0 bg-emerald-500'
+											/>
 										</FormControl>
 
 										<FormLabel className='cursor-pointer font-bold text-primary'>
@@ -170,7 +174,11 @@ export function PlateForm({ form, isLoading, onSubmit }: Props) {
 										)}
 									>
 										<FormControl>
-											<RadioGroupItem value='false' className='size-2 border-0 ring-0 bg-rose-500' />
+											<RadioGroupItem 
+												data-testid='out-of-diet-radio'
+												value='false'
+												className='size-2 border-0 ring-0 bg-rose-500'
+											/>
 										</FormControl>
 
 										<FormLabel className='cursor-pointer font-bold text-primary'>
@@ -187,7 +195,7 @@ export function PlateForm({ form, isLoading, onSubmit }: Props) {
 					{isLoading ? (
 						<CircleNotch size={18} className='animate-spin' />
 					) :
-						'Cadastrar refeição'
+						'Confirmar'
 					}
 				</Button>
 			</form>
