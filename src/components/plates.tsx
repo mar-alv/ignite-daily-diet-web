@@ -11,11 +11,12 @@ import {
 	AccordionTrigger
 } from '@/components/ui/accordion'
 import { Plate } from '@/components/plate'
+import { Skeleton } from '@/components/ui/skeleton'
 
 import { Plate as IPlate } from '@/interfaces'
 
 import { dateFns } from '@/lib/date-fns'
-import { Skeleton } from '@/components/ui/skeleton'
+import { toastify } from '@/lib/toastify'
 
 export function Plates() {
 	const { data } = useQuery('getPlates', getPlates, {
@@ -63,8 +64,8 @@ export function PlatesSkeleton() {
 			<Skeleton className='w-[72px] h-6' />
 
 			<div className='mt-[14px] gap-2 grid'>
-				{Array.from({ length: 4 }).map((_) => (
-					<Skeleton className='h-[84px]' />
+				{Array.from({ length: 4 }).map((_, index) => (
+					<Skeleton key={index} className='h-[84px]' />
 				))}
 			</div>
 		</section>

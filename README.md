@@ -127,14 +127,6 @@ pnpm run storybook
 ## <a id='screenshots-prints' style='text-decoration: none; color: inherit;'>📸 Screenshots and 🎥 Recordings</a>
 <div align='center'>
 
-  ![colors-stories](./.github/colors-stories.png)
-
-Colors stories
-
-</div>
-
-<div align='center'>
-
   ![icons-stories](./.github/icons-stories.png)
 
 Icons stories

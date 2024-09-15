@@ -12,7 +12,7 @@ import { env } from '@/env'
 const queryClient = new QueryClient()
 
 const meta: Meta<typeof Metrics> = {
-  title: 'components/diet percentage',
+  title: 'components/metrics',
   component: Metrics,
   tags: ['autodocs'],
   decorators: [

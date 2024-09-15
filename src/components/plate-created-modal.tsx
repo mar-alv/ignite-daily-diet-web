@@ -19,17 +19,17 @@ interface Props {
 export function PlateCreatedModal({ stayedInDiet }: Props) {
   return (
 		<DialogContent aria-describedby={undefined} className='max-w-96 grid justify-center'>
-			<DialogHeader className='gap-2 grid text-center'>
+			<DialogHeader className='gap-2 grid'>
 				<DialogTitle
 					className={clsx(
-						'text-2xl font-bold',
+						'text-center text-2xl font-bold',
 						stayedInDiet ? 'text-emerald-500' : ' text-rose-500'
 					)}
 				>
 					{stayedInDiet ? 'Continue assim!' : 'Que pena!'}
 				</DialogTitle>
 
-				<DialogDescription>
+				<DialogDescription className='text-center'>
 					{stayedInDiet ? (
 						<>
 							Você continua <strong>dentro da dieta</strong>. Muito bem!
@@ -46,13 +46,13 @@ export function PlateCreatedModal({ stayedInDiet }: Props) {
 				<img
 					src={stayedInDietImg}
 					alt='Pessoa saltando de felicidade por ter continuado na sua dieta'
-					className='mt-10'
+					className='mt-10 justify-self-center'
 				/>
 			) : (
 				<img
 					src={stayedOutOfDietImg}
 					alt='Pessoa sentada, triste por ter pulado sua dieta'
-					className='mt-10'
+					className='mt-10 justify-self-center'
 				/>
 			)}
 
