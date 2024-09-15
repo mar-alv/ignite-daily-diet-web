@@ -127,6 +127,30 @@ pnpm run storybook
 ## <a id='screenshots-prints' style='text-decoration: none; color: inherit;'>📸 Prints e 🎥 Gravações</a>
 <div align='center'>
 
+  ![icons-stories](../.github/creating-plates.gif)
+
+  Criando refeições
+
+</div>
+
+<div align='center'>
+
+  ![icons-stories](../.github/deleting-plate.gif)
+
+  Removendo refeição
+
+</div>
+
+<div align='center'>
+
+  ![icons-stories](../.github/updating-plate.gif)
+
+  Atualizando refeição
+
+</div>
+
+<div align='center'>
+
   ![icons-stories](../.github/icons-stories.png)
 
   Stories dos ícones
@@ -178,6 +202,14 @@ pnpm run storybook
   ![other-stories](../.github/plates-stories.gif)
 
   Stories das refeições
+
+</div>
+
+<div align='center'>
+
+  ![no-plates](../.github/loading-plates.png)
+
+  Carregando refeições
 
 </div>
 

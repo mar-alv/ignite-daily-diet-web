@@ -127,9 +127,33 @@ pnpm run storybook
 ## <a id='screenshots-prints' style='text-decoration: none; color: inherit;'>📸 Screenshots and 🎥 Recordings</a>
 <div align='center'>
 
+  ![icons-stories](./.github/creating-plates.gif)
+
+   Creating plates
+
+</div>
+
+<div align='center'>
+
+  ![icons-stories](./.github/deleting-plate.gif)
+
+   Deleting plate
+
+</div>
+
+<div align='center'>
+
+  ![icons-stories](./.github/updating-plate.gif)
+
+   Updating plate
+
+</div>
+
+<div align='center'>
+
   ![icons-stories](./.github/icons-stories.png)
 
-Icons stories
+  Icons stories
 
 </div>
 
@@ -137,7 +161,7 @@ Icons stories
 
   ![header-stories](./.github/header-stories.png)
 
-Header stories
+  Header stories
 
 </div>
 
@@ -145,7 +169,7 @@ Header stories
 
   ![form-stories](./.github/form-stories.png)
 
-	Form Stories 
+  Form Stories 
 
 </div>
 
@@ -178,6 +202,14 @@ Header stories
   ![other-stories](./.github/plates-stories.gif)
 
   Plates stories
+
+</div>
+
+<div align='center'>
+
+  ![no-plates](./.github/loading-plates.png)
+
+  Loading plates
 
 </div>
 
