@@ -85,7 +85,7 @@ export function MetricsSkeleton() {
 	return (
 		<section className='mt-8 gap-3 flex flex-wrap justify-between text-center'>
 			<article className='flex-1'>
-				<Skeleton className='h-[180px] rounded-lg bg-emerald-400' />
+				<Skeleton className='h-[180px] rounded-lg bg-emerald-200' />
 			</article>
 
 			<article className='gap-3 grid flex-1'>
@@ -94,8 +94,8 @@ export function MetricsSkeleton() {
 			</article>
 
 			<article  className='gap-3 grid flex-1'>
-				<Skeleton className='h-[84px] rounded-lg bg-emerald-400' />
-				<Skeleton className='h-[84px] rounded-lg bg-rose-400' />
+				<Skeleton className='h-[84px] rounded-lg bg-emerald-200' />
+				<Skeleton className='h-[84px] rounded-lg bg-rose-200' />
 			</article>
 		</section>
 	)
