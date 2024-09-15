@@ -5,15 +5,15 @@ import { Meta, StoryObj } from '@storybook/react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 
 import { Toaster } from '@/components/ui/toaster'
-import { UpdatePlateButton } from '@/components/update-plate-button'
+import { UpdatePlate } from '@/components/update-plate'
 
 import { env } from '@/env'
 
 const queryClient = new QueryClient()
 
-const meta: Meta<typeof UpdatePlateButton> = {
-  title: 'components/update plate button',
-  component: UpdatePlateButton,
+const meta: Meta<typeof UpdatePlate> = {
+  title: 'components/update plate',
+  component: UpdatePlate,
   tags: ['autodocs'],
 	decorators: [
     (Story) => (

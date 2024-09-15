@@ -30,7 +30,7 @@ interface Props {
 	plate: Plate
 }
 
-export function UpdatePlateButton({ plate }: Props) {
+export function UpdatePlate({ plate }: Props) {
   const { toast } = useToast()
 
 	const queryClient = useQueryClient()

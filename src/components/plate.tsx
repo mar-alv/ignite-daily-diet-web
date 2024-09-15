@@ -2,8 +2,8 @@ import clsx from 'clsx'
 
 import { memo } from 'react'
 
-import { DeletePlateButton } from '@/components/delete-plate-button'
-import { UpdatePlateButton } from '@/components/update-plate-button'
+import { DeletePlate } from '@/components/delete-plate'
+import { UpdatePlate } from '@/components/update-plate'
 
 import { Plate as IPlate } from '@/interfaces'
 
@@ -86,8 +86,8 @@ export const Plate = memo(({ plate }: Props) => {
 					</div>
 
 					<div className='gap-2 flex flex-wrap justify-center'>
-						<UpdatePlateButton plate={plate} />
-						<DeletePlateButton id={id} />
+						<UpdatePlate plate={plate} />
+						<DeletePlate id={id} />
 					</div>
 				</AccordionContent>
 			</AccordionItem>

@@ -22,7 +22,7 @@ interface Props {
 	id: string
 }
 
-export function DeletePlateButton({ id }: Props) {
+export function DeletePlate({ id }: Props) {
   const { toast } = useToast()
 
 	const queryClient = useQueryClient()

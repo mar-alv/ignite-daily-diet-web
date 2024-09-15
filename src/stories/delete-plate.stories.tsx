@@ -4,16 +4,16 @@ import { Meta, StoryObj } from '@storybook/react'
 
 import { QueryClient, QueryClientProvider } from 'react-query'
 
-import { DeletePlateButton } from '@/components/delete-plate-button'
+import { DeletePlate } from '@/components/delete-plate'
 import { Toaster } from '@/components/ui/toaster'
 
 import { env } from '@/env'
 
 const queryClient = new QueryClient()
 
-const meta: Meta<typeof DeletePlateButton> = {
-  title: 'components/delete plate button',
-  component: DeletePlateButton,
+const meta: Meta<typeof DeletePlate> = {
+  title: 'components/delete plate',
+  component: DeletePlate,
   tags: ['autodocs'],
   decorators: [
     (Story) => (
