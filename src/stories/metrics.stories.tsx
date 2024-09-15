@@ -71,5 +71,3 @@ export const outOfDiet: Story = {
 		}
 	}
 }
-
-// TODO: make error story to keep seing the skeleton and toast

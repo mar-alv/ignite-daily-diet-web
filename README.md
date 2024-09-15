@@ -142,6 +142,14 @@ Header stories
 
 <div align='center'>
 
+  ![form-stories](./.github/form-stories.png)
+
+	Form Stories 
+
+</div>
+
+<div align='center'>
+
   ![positive-metrics-stories](./.github/positive-metrics-stories.png)
 
   Positive metrics stories
@@ -158,26 +166,17 @@ Header stories
 
 <div align='center'>
 
-  ![creating-plate-stories](./.github/creating-plate.gif)
+  ![creating-plate-stories](./.github/plates-handling-stories.gif)
 
-  Creating plate stories
+  Plates handling stories
 
 </div>
 
 <div align='center'>
 
-  ![deleting-plate-stories](./.github/deleting-plate.gif)
+  ![other-stories](./.github/plates-stories.gif)
 
-  Deleting plate stories
-
-</div>
-
-
-<div align='center'>
-
-  ![other-stories](./.github/other-stories.gif)
-
-  Other stories
+  Plates stories
 
 </div>
 

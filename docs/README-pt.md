@@ -142,6 +142,14 @@ pnpm run storybook
 
 <div align='center'>
 
+  ![form-stories](../.github/form-stories.png)
+
+  Stories do form
+
+</div>
+
+<div align='center'>
+
   ![positive-metrics-stories](../.github/positive-metrics-stories.png)
 
   Stories das métricas positivas
@@ -158,26 +166,17 @@ pnpm run storybook
 
 <div align='center'>
 
-  ![creating-plate-stories](../.github/creating-plate.gif)
+  ![creating-plate-stories](../.github/plates-handling-stories.gif)
 
-  Stories da criação de refeições
+  Stories de modificações de refeições
 
 </div>
 
 <div align='center'>
 
-  ![deleting-plate-stories](../.github/deleting-plate.gif)
+  ![other-stories](../.github/plates-stories.gif)
 
-  Stories da remoção de refeições
-
-</div>
-
-
-<div align='center'>
-
-  ![other-stories](../.github/other-stories.gif)
-
-  Outros stories
+  Stories das refeições
 
 </div>
 

@@ -115,5 +115,3 @@ export const TwoDates: Story = {
 		}
 	}
 }
-
-// TODO: make error story to keep seing the skeleton and toast
