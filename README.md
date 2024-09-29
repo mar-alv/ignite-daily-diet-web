@@ -127,6 +127,8 @@ pnpm run storybook
 [![Zod](https://img.shields.io/badge/Zod-007ACC?style=for-the-badge&logo=superman&logoColor=white)](https://zod.dev/)
 
 ## <a id='screenshots-prints' style='text-decoration: none; color: inherit;'>📸 Screenshots and 🎥 Recordings</a>
+For a longer video demonstration click here and like my post on <a href='https://www.linkedin.com/feed/update/urn:li:activity:7246141307188854784/'>LinkedIn</a>
+
 <div align='center'>
 
   ![icons-stories](./.github/creating-plates.gif)
