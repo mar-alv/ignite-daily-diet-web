@@ -2,8 +2,8 @@
 
 <div align='center'>
 
-  ![project-img](./.github/cover.jpg)
-  
+  ![project-img](../.github/cover.jpg)
+
   [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
 
   [🎨 Mobile Design](https://www.figma.com/design/0507XcCgEpjZwM5UKuFmg5/Daily-Diet-%E2%80%A2-Desafio-React-Native-(Community)?node-id=2-12&t=UiGTDLfY7wSTv3rj-0)
