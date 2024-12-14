@@ -8,7 +8,7 @@
 
   [🎨 Mobile Design](https://www.figma.com/design/0507XcCgEpjZwM5UKuFmg5/Daily-Diet-%E2%80%A2-Desafio-React-Native-(Community)?node-id=2-12&t=UiGTDLfY7wSTv3rj-0)
 
-  [🇵🇹 Português](./docs/README-pt.md)
+  [🇧🇷 Português](./docs/README-pt.md)
 
 </div>
 
